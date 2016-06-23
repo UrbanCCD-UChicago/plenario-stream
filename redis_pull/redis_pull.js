@@ -1,6 +1,6 @@
 var endpoint = 'test-cluster.bkhf8w.0001.usw2.cache.amazonaws.com',
     redis = require('redis'),
-    materialize = require('./materialize');
+    materialize = require('../summarizer/materialize');
     promise = require('promise');
 
 var update_node = function (observations,metadata) {
