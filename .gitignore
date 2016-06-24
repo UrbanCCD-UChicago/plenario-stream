@@ -17,7 +17,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
 lib64/
 parts/
 sdist/
@@ -37,7 +36,7 @@ pip-log.txt
 pip-delete-this-directory.txt
 
 # Node modules
-node_modules
+node_modules/
 
 # Unit test / coverage reports
 htmlcov/
