@@ -23,6 +23,11 @@ var kcl = require('../../..');
 var logger = require('../../util/logger');
 var external_IP = '54.152.59.142';
 var redis_pull = require('../../../../redis_pull/redis_pull');
+var metadata = {
+		'id': 'foo',
+		'version': 1,
+		'observation_types': ['temperature', 'pressure']
+		} 
 
 /**
  * A simple implementation for the record processor (consumer) that simply writes the data to a log file.
@@ -57,16 +62,17 @@ function recordProcessor() {
       for (var i = 0 ; i < records.length ; ++i) {
         record = records[i];
         data = new Buffer(record.data, 'base64').toString();
-        sequenceNumber = record.sequenceNumber;
+	sequenceNumber = record.sequenceNumber;
         partitionKey = record.partitionKey;
 	//
 	redis_pull.pull_node('a').then(function(res){
-            socket.emit('message', res);
+            socket.emit('message', 'Latest observation: '+data);
+	    socket.emit('message', '24 hr aggregate: '+res);
 	},function(err){
+	    socket.emit('message', 'Latest observation: '+data);
             socket.emit('message', err);
 	});
 	//
-        socket.emit('message', data);
         log.info(util.format('ShardID: %s, Record: %s, SeqenceNumber: %s, PartitionKey:%s', shardId, data, sequenceNumber, partitionKey));
       }
       if (!sequenceNumber) {
