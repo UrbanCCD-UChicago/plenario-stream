@@ -67,13 +67,9 @@ function recordProcessor() {
 	sequenceNumber = record.sequenceNumber;
         partitionKey = record.partitionKey;
 	redis_pull.update_node([JSON.parse(data)],metadata).then(function(res){
-	    console.log('update complete');
 	    redis_pull.pull_node(JSON.parse(data)['id']).then(function(res){
                 socket.emit('message', 'Latest observation: '+data);
 	        socket.emit('message', '24 hr aggregate: '+res);
-	    },function(err){
-	        socket.emit('message', 'Latest observation: '+data);
-                socket.emit('message', err);
 	    });
 	});
         log.info(util.format('ShardID: %s, Record: %s, SeqenceNumber: %s, PartitionKey:%s', shardId, data, sequenceNumber, partitionKey));
