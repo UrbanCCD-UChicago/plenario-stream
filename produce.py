@@ -3,7 +3,8 @@
 import sys
 from os import environ
 import boto3
-
+import time
+import random
 
 def make_client():
     """
@@ -40,6 +41,14 @@ def send_data(client, data):
     client.put_record(**params)
 
 if __name__ == '__main__':
-    message = sys.argv[1]
-    c = make_client()
-    send_data(c, message.encode('ascii'))
+    count = 0
+    while True:
+        count += 1        
+	for i in range(1,6):
+	    temperature = str(random.uniform(70,90))
+	    pressure = str(random.uniform(28,32))
+	    message = '{"id": "foo'+str(i)+'","version": 1,"time": '+str(1565572100+count*15)+',"temperature": '+temperature+',"pressure": '+pressure+'}'
+            c = make_client()
+            # print message
+	    send_data(c, message.encode('ascii'))
+	time.sleep(15)
