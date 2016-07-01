@@ -21,7 +21,7 @@ var path = require('path');
 var util = require('util');
 var kcl = require('../../..');
 var logger = require('../../util/logger');
-var external_IP = '54.152.59.142';
+var external_IP = '52.205.163.213';
 var redis_pull = require('../../../../redis_pull/redis_pull');
 // fixed metadata prototyping workaround - eventually metadata will be delivered with data(?) 
 var metadata = {
@@ -47,7 +47,15 @@ function recordProcessor() {
     initialize: function(initializeInput, completeCallback) {
       log.info('In initialize');
       shardId = initializeInput.shardId;
-      socket.emit('message', 'Kinesis connected');
+      socket.emit('data', 'Kinesis Connected');
+      redis_pull.pull_node('foo1').then(function(res){
+	    socket.emit('data', 'Observations in the last hour:');
+            for(var i = 0 ; i < JSON.parse(res)['Last_hour'].length ; i++){    
+		socket.emit('data', JSON.stringify(JSON.parse(res)['Last_hour'][i]));
+	    }
+        },function(err){
+            socket.emit('data', err);
+	});
 
       completeCallback();
     },
@@ -66,12 +74,9 @@ function recordProcessor() {
 	data = new Buffer(record.data, 'base64').toString();
 	sequenceNumber = record.sequenceNumber;
         partitionKey = record.partitionKey;
-	redis_pull.update_node([JSON.parse(data)],metadata).then(function(res){
-	    redis_pull.pull_node(JSON.parse(data)['id']).then(function(res){
-                socket.emit('message', 'Latest observation: '+data);
-	        socket.emit('message', '24 hr aggregate: '+res);
+	redis_pull.update_node(JSON.parse(data),metadata).then(function(res){
+                socket.emit('data', 'Latest observation: '+data);
 	    });
-	});
         log.info(util.format('ShardID: %s, Record: %s, SeqenceNumber: %s, PartitionKey:%s', shardId, data, sequenceNumber, partitionKey));
       }
       if (!sequenceNumber) {

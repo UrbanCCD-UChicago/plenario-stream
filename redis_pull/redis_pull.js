@@ -22,18 +22,20 @@ var pull_node = function(id) {
         return prom
 };
 
-var update_node = function(observations,metadata) {
+var update_node = function(observation,metadata) {
 	var client = redis.createClient(6379, endpoint);
 	var prom = new promise(function(resolve, reject) {
-	client.get(observations[0]['id'], function(err, value) {
+	client.get(observation['id'], function(err, value) {
 		if(value != null){
-			client.set(observations[0]['id'],JSON.stringify(materialize.update_node_summary(JSON.parse(value),observations,metadata)),function(err, reply){
+			var value_JSON = JSON.parse(value);
+			value_JSON['Last_hour'].push(observation);
+			client.set(observation['id'],JSON.stringify(value_JSON),function(err, reply){
 				client.quit();
 				resolve();
 			});
 		}
 		else{
-			client.set(observations[0]['id'],JSON.stringify(materialize.make_node_summary(observations,metadata)),function(err, reply){
+			client.set(observation['id'],JSON.stringify({'Last_hour': []}),function(err, reply){
 				client.quit();
 				resolve();
                         });
@@ -43,5 +45,28 @@ var update_node = function(observations,metadata) {
 	return prom;
 };
 
+// updates aggregate from list of observations
+/*
+var update_node = function(observations,metadata) {
+        var client = redis.createClient(6379, endpoint);
+        var prom = new promise(function(resolve, reject) {
+        client.get(observations[0]['id'], function(err, value) {
+                if(value != null){
+                        client.set(observations[0]['id'],JSON.stringify(materialize.update_node_summary(JSON.parse(value),observations,metadata)),function(err, reply){
+                                client.quit();
+                                resolve();
+                        });
+                }
+                else{
+                        client.set(observations[0]['id'],JSON.stringify(materialize.make_node_summary(observations,metadata)),function(err, reply){
+                                client.quit();
+                                resolve();
+                        });
+                }
+        });
+    });
+        return prom;
+};
+*/
 exports.update_node = update_node;
 exports.pull_node = pull_node;
