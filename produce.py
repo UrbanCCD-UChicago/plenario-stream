@@ -43,11 +43,10 @@ def send_data(client, data):
 if __name__ == '__main__':
     count = 0
     while True:
-        count += 1        
-	for i in range(1,6):
+	for i in range(1,2):
 	    temperature = str(random.uniform(70,90))
 	    pressure = str(random.uniform(28,32))
-	    message = '{"id": "foo'+str(i)+'","version": 1,"time": '+str(1565572100+count*15)+',"temperature": '+temperature+',"pressure": '+pressure+'}'
+	    message = '{"id": "foo'+str(i)+'","version": 1,"time": '+str(time.time())+',"temperature": '+temperature+',"pressure": '+pressure+'}'
             c = make_client()
             # print message
 	    send_data(c, message.encode('ascii'))
