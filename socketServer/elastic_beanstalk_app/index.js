@@ -11,6 +11,7 @@ io.on('connection', function(socket){
     socket.on('data', function(msg){
         io.emit('data', msg);
     });
+    socket.emit('data', 'Observations from the past hour:');
     redis_pull.pull_node('foo1').then(function(res){
 	for(var i = 0 ; i < JSON.parse(res)['Last_hour'].length ; i++){
 	    socket.emit('data', JSON.stringify(JSON.parse(res)['Last_hour'][i]));
