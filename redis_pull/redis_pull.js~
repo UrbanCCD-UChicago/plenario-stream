@@ -22,7 +22,7 @@ var pull_node = function(id) {
         return prom
 };
 
-var update_node = function(observation) {
+var update_node = function(observation,metadata) {
 	var client = redis.createClient(6379, endpoint);
 	var prom = new promise(function(resolve, reject) {
 	client.get(observation['id'], function(err, value) {
@@ -35,7 +35,7 @@ var update_node = function(observation) {
 			});
 		}
 		else{
-			client.set(observation['id'],JSON.stringify({'Last_hour': [observation]}),function(err, reply){
+			client.set(observation['id'],JSON.stringify({'Last_hour': []}),function(err, reply){
 				client.quit();
 				resolve();
                         });
