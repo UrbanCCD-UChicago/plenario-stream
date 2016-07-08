@@ -24,11 +24,6 @@ var logger = require('../../util/logger');
 var external_IP = '52.205.163.213';
 var redis_pull = require('../../../../redis_pull/redis_pull');
 // fixed metadata prototyping workaround - eventually metadata will be delivered with data(?) 
-var metadata = {
-		'id': 'foo',
-		'version': 1,
-		'observation_types': ['temperature', 'pressure']
-		}
 
 /**
  * A simple implementation for the record processor (consumer) that simply writes the data to a log file.
@@ -48,14 +43,14 @@ function recordProcessor() {
       log.info('In initialize');
       shardId = initializeInput.shardId;
       socket.emit('data', 'Kinesis Connected');
-      redis_pull.pull_node('foo1').then(function(res){
+      /*redis_pull.pull_node('foo1').then(function(res){
 	    socket.emit('data', 'Observations in the last hour:');
             for(var i = 0 ; i < JSON.parse(res)['Last_hour'].length ; i++){    
 		socket.emit('data', JSON.stringify(JSON.parse(res)['Last_hour'][i]));
 	    }
         },function(err){
             socket.emit('data', err);
-	});
+	});*/
 
       completeCallback();
     },
@@ -74,7 +69,7 @@ function recordProcessor() {
 	data = new Buffer(record.data, 'base64').toString();
 	sequenceNumber = record.sequenceNumber;
         partitionKey = record.partitionKey;
-	redis_pull.update_node(JSON.parse(data),metadata).then(function(res){
+	redis_pull.update_node(JSON.parse(data)).then(function(res){
                 socket.emit('data', 'Latest observation: '+data);
 	    });
         log.info(util.format('ShardID: %s, Record: %s, SeqenceNumber: %s, PartitionKey:%s', shardId, data, sequenceNumber, partitionKey));
