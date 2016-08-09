@@ -15,9 +15,21 @@ RUN npm install
 
 COPY . /app
 
-# supply aws credentials
-ENV AWS_ACCESS_KEY_ID=
-ENV AWS_SECRET_ACCESS_KEY=
+# supply AWS credentials and DB info
+# ENV AWS_ACCESS_KEY_ID=
+# ENV AWS_SECRET_ACCESS_KEY=
+#
+# ENV DB_USER
+# ENV DB_PASSWORD=
+# ENV DB_HOST=
+# ENV DB_PORT=
+# ENV DB_NAME=
+#
+# ENV RS_USER
+# ENV RS_PASSWORD=
+# ENV RS_HOST=
+# ENV RS_PORT=
+# ENV RS_NAME=
 
 EXPOSE 80
 

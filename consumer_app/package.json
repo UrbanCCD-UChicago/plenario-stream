@@ -20,12 +20,15 @@
     "clean": "grunt clean",
     "test": "grunt test",
     "release": "grunt release",
-    "doc": "grunt jsdoc"
+    "doc": "grunt jsdoc",
+    "start": "nodejs bin/kcl-bootstrap -e -p consumer/sample.properties"
   },
   "dependencies": {
     "commander": "~2.6.0",
     "machina": "~1.0.0-1",
-    "socket.io-client": "^1.4.6"
+    "socket.io-client": "~1.4.6",
+    "promise": "~7.1.1",
+    "pg": "~6.0.3"
   },
   "devDependencies": {
     "async": "~0.9.0",
