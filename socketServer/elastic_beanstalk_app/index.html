@@ -15,10 +15,17 @@
     <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
     <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
     <script>
+      console.log("index.script: __enter__");
+
       var socket = io();
-      socket.on('data', function(msg){
-        $('#messages').append($('<li>').text(msg));
-      });
+      console.log("index.script.socket: " + socket);
+      console.log("index.script.socket.name: " + socket.name);
+
+//      socket.on('data', function(msg){
+//        // Upon receiving a message, append the message value to an HTML list.
+//        $('#messages').append($('<li>').text(msg));
+//      });
+
     </script>
   </body>
 </html>

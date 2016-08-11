@@ -1,26 +1,27 @@
-var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var redis_pull = require('./redis_pull');
+var app = require("express")();
+var validator = require("./validator");
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
-});
+app.get('/', function(request, response) {
 
-io.on('connection', function(socket){
-    socket.on('data', function(msg){
-        io.emit('data', msg);
+  if (Object.keys(request.query) <= 0) {
+    response.send("No params. :(");
+  }
+
+  for (var key in request.query) {
+    if (!(key in validator)) {
+      response.send("Invalid param.");
+      continue;
+    }
+    
+    validator[key](request.query[key]).then(function(result) {
+      var valid = result;
+      if (!valid) {
+        response.send(key + " contains an invalid value.");
+      } else {
+        response.send("Nice param!");
+      }
     });
-    socket.emit('data', 'Most recent hour of observations:');
-    redis_pull.pull_node('foo1').then(function(res){
-	for(var i = 0 ; i < JSON.parse(res)['Last_hour'].length ; i++){
-	    socket.emit('data', JSON.stringify(JSON.parse(res)['Last_hour'][i]));
-	}
-    },function(err){
-	io.emit('data',err);
-    });
+  }
 });
 
-http.listen(8081, function(){
-    console.log("listening at http://52.205.163.213:8081/");
-});
+app.listen(8081);
