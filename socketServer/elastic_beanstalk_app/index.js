@@ -1,26 +1,36 @@
 var app = require('express')();
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
-var redis_pull = require('./redis_pull');
+var http = require('http');
+var server = http.Server(app);
+var io = require('socket.io')(server);
 
-app.get('/', function(req, res){
-    res.sendFile(__dirname + '/index.html');
+// does nothing concerning direct socket connections
+app.get('/v1/api/sensor-networks/:network_name/:args?', function(req, res){
+    if (req.params.args) {
+        console.log(req.params.args.split('&'));
+    }
 });
 
-io.on('connection', function(socket){
-    socket.on('data', function(msg){
+io.on('connect', function(socket){
+    var now = new Date();
+    var hour_ago = new Date(now.getTime() - (1000*60*60));
+    // get last hour
+    http.get('http://localhost:5000/v1/api/sensor-networks/ArrayOfThings/query?' +
+        'start_datetime='+hour_ago.toISOString().replace('Z','') +
+        '&end_datetime='+now.toISOString().replace('Z',''), function (response) {
+        var output = '';
+        response.on('data', function (data) {
+            output += data;
+        });
+        response.on('end', function () {
+            socket.emit('data', {"past_hour": JSON.parse(output)['data']});
+        });
+    });
+    //
+    io.on('internal_data', function(msg){
         io.emit('data', msg);
     });
-    socket.emit('data', 'Most recent hour of observations:');
-    redis_pull.pull_node('foo1').then(function(res){
-	for(var i = 0 ; i < JSON.parse(res)['Last_hour'].length ; i++){
-	    socket.emit('data', JSON.stringify(JSON.parse(res)['Last_hour'][i]));
-	}
-    },function(err){
-	io.emit('data',err);
-    });
 });
 
-http.listen(8081, function(){
-    console.log("listening at http://52.205.163.213:8081/");
+server.listen(8080, function(){
+    console.log("listening at http://localhost:8080/");
 });
