@@ -1,9 +1,7 @@
 var io = require('socket.io-client');
-var fs = require('fs');
 
-var socket = io.connect('http://localhost:8080/test_args');
+var socket = io.connect('http://localhost:8081/', {query: 'args={"nodes": ["ArrayOfThings1","ArrayOfThings2"], "features_of_interest": ["temperature"], "sensor_network": "ArrayOfThings"}'});
 socket.on('data', function (data) {
-  	// fs.writeFile('datatest.txt', JSON.stringify(data));
 	console.log(JSON.stringify(data));
 });
 
