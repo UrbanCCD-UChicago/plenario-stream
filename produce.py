@@ -3,6 +3,7 @@
 import sys
 from os import environ
 import boto3
+from datetime import datetime
 import time
 import random
 
@@ -12,8 +13,8 @@ def make_client():
     :return: boto3 Kinesis client
     """
 
-    PROD_ID = environ.get('PROD_ID')
-    PROD_KEY = environ.get('PROD_KEY')
+    PROD_ID = environ.get('AWS_ACCESS_KEY_ID')
+    PROD_KEY = environ.get('AWS_SECRET_ACCESS_KEY')
     assert PROD_ID and PROD_KEY
 
     return boto3.client(
@@ -43,11 +44,20 @@ def send_data(client, data):
 if __name__ == '__main__':
     count = 0
     while True:
-	for i in range(1,2):
-	    temperature = str(random.uniform(70,90))
-	    pressure = str(random.uniform(28,32))
-	    message = '{"id": "foo'+str(i)+'","version": 1,"time": '+str(time.time())+',"temperature": '+temperature+',"pressure": '+pressure+'}'
+        for i in range(1,2):
+            temperature = str(random.uniform(70,90))
+            pressure = str(random.uniform(28,32))
+            message1 = '{"node_id": "ArrayOfThings'+str(i)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
+                                                         '"sensor": "PRE450","data": '+str([random.randrange(0, 100)])+'}'
+            message2 = '{"node_id": "ArrayOfThings'+str(i)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
+                                                         '"sensor": "TMP112","data": '+str([random.randrange(0, 100)])+'}'
+            message3 = '{"node_id": "ArrayOfThings'+str(i)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
+                                                         '"sensor": "UBQ120","data": '+str([random.randrange(0, 100),random.randrange(0, 100),random.randrange(0, 100)])+'}'
             c = make_client()
-            # print message
-	    send_data(c, message.encode('ascii'))
-	time.sleep(15)
+            print message1
+            print message2
+            print message3
+            send_data(c, message1.encode('ascii'))
+            send_data(c, message2.encode('ascii'))
+            send_data(c, message3.encode('ascii'))
+        time.sleep(4)
