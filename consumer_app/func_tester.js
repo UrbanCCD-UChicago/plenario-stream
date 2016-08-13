@@ -33,7 +33,7 @@ var obs = {
 
 var map = {};
 
-mapper.parse_insert_emit(obs, map, pg_pool, rs_pool);
+mapper.parse_insert_emit(obs, map, pg_pool, rs_pool, require('socket.io-client')('http://127.0.0.1/'));
 
 
 

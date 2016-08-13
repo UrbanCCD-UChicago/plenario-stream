@@ -1,8 +1,10 @@
 var promise = require('promise');
+var util = require('util');
 
 /**
  * pulls from postgres to create most up-to-date mapping of sensor names to array of properties
  *
+ * @param {pg.Pool} pg_pool = postgres client pool
  * @return {promise} yields map on fulfillment
  * in format:
  * { TMP112: [ 'temperature.temperature' ],
@@ -10,9 +12,9 @@ var promise = require('promise');
  * UBQ120: [ 'magneticField.X', 'magneticField.Y', 'magneticField.Z' ],
  * PRE450: [ 'atmosphericPressure.pressure' ] }
  */
-var update_map = function (pool) {
+var update_map = function (pg_pool) {
     var p = new promise(function (fulfill, reject) {
-        pool.connect(function (err, client, done) {
+        pg_pool.connect(function (err, client, done) {
             if (err) {
                 reject('error connecting client ', err);
             }
@@ -46,10 +48,10 @@ var update_map = function (pool) {
  * @param {pg.Pool} pg_pool
  * @param {pg.Pool} rs_pool
  * @param {socket} socket = socket.io client sending data to socket server app
- * @return false if map needs to be updated, true otherwise
+ * @return true if map needs to be updated, false otherwise
  */
 var parse_insert_emit = function (obs, map, pg_pool, rs_pool, socket) {
-    // pulls postgres immediately if sensor is not known or properties have changed
+    // pulls postgres immediately if sensor is not known or properties have been added
     if (!(obs['sensor'] in map) ||
         ((obs['sensor'] in map) && (obs['data'].length > map[obs['sensor']].length))) {
         update_map(pg_pool).then(function (new_map) {
@@ -58,24 +60,25 @@ var parse_insert_emit = function (obs, map, pg_pool, rs_pool, socket) {
                 // this means we don't have the mapping for a sensor and it's not in postgres
                 // OR the observation length is larger than what's in postgres
                 // send message to metadata manager
-                // insert into 'Island of Misfit Values'
+                // banish observation to the 'Island of Misfit Values'
                 redshift_insert(obs, new_map, rs_pool, true);
-                return false
+                return true
             }
             else {
+                // updating the map fixed the discrepancy
                 redshift_insert(obs, new_map, rs_pool, false);
-                socket.emit('data', JSON.stringify(obs));
+                socket.emit('internal_data', JSON.stringify(obs));
                 return true
             }
         }, function (err) {
-            console.log(err)
+            // handle error without console
         })
     }
     // if preliminary checks show that the mapping will work to input values into the database, do it
     else {
         redshift_insert(obs, map, rs_pool, false);
-        socket.emit('data', JSON.stringify(obs));
-        return true
+        socket.emit('internal_data', JSON.stringify(obs));
+        return false
     }
 };
 
@@ -85,7 +88,7 @@ var parse_insert_emit = function (obs, map, pg_pool, rs_pool, socket) {
  * @param {Object} obs = observation
  * in format:
  * { "node_id": "0000001e06107cdc",
- *  "node_config": "011ab78",
+ *  "node_config": "011ab78", <= if accepted. for now this is replaced by an integer procedure
  *  "datetime": "2016-08-05T00:00:08.246000",
  *  "sensor": "HTU21D",
  *  "data": [37.90, 27.48] }
@@ -96,15 +99,15 @@ var parse_insert_emit = function (obs, map, pg_pool, rs_pool, socket) {
  * @return false if map needs to be updated, true otherwise
  */
 var redshift_insert = function (obs, map, rs_pool, misfit) {
-    // works off nodeid, datetime, sensor, {values}, procedure database model for now
+    // works off (nodeid, datetime, sensor, {values}, procedures) database model for now
     // if node_config format is accepted, change this
     rs_pool.connect(function (err, rs_client, done) {
         if (err) {
-            return console.error('error connecting client ', err);
+            // handle error without console
         }
         if (misfit) {
-            var query_text = require('util').format("INSERT INTO unknownfeature " +
-                "VALUES ('%s', '%s', '%s', '%s', 1234);",
+            var query_text = util.format("INSERT INTO unknownfeature " +
+                "VALUES ('%s', '%s', '%s', '%s', 1234);", // fake procedure hack
                 obs['node_id'], obs['datetime'], obs['sensor'], JSON.stringify(obs['data']));
             rs_client.query(query_text);
             done();
@@ -117,13 +120,21 @@ var redshift_insert = function (obs, map, rs_pool, misfit) {
                     all_features.push(feature)
                 }
             }
-            // operates under the assumption that FoI properties are reported completely and in order
-            // if we don't want this, we have to pull FoI metadata from postgres and use it to order observation fields
-            // var property = map[obs['sensor']][i].split('.')[1] is unused
             for (var j = 0; j < all_features.length; j++) {
                 var feature = all_features[j];
-                var query_text = require('util').format("INSERT INTO %s " +
-                    "VALUES ('%s', '%s', '%s'", feature.toLowerCase(), obs['node_id'], obs['datetime'], obs['sensor']);
+                var query_text = util.format("INSERT INTO %s (nodeid, datetime, sensor, ", feature.toLowerCase());
+                var c = 0;
+                for (var k = 0; k < map[obs['sensor']].length; k++) {
+                    if (map[obs['sensor']][k].split('.')[0] == feature) {
+                        if (c != 0 ){
+                            query_text +=  ', '
+                        }
+                        query_text += map[obs['sensor']][k].split('.')[1];
+                        c++;
+                    }
+                }
+                query_text = util.format(query_text + ", procedures) " + // fake procedure hack
+                    "VALUES ('%s', '%s', '%s'", obs['node_id'], obs['datetime'], obs['sensor']);
                 for (var k = 0; k < map[obs['sensor']].length; k++) {
                     if (map[obs['sensor']][k].split('.')[0] == feature) {
                         query_text += ', ' + obs['data'][k];
