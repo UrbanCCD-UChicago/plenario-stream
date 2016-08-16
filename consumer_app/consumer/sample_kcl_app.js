@@ -8,9 +8,8 @@ var util = require('util');
 var pg = require('pg');
 var kcl = require('../');
 var logger = require('../util/logger');
-var external_IP = '52.0.235.224'; // external IP address of socket.io app
+var external_IP = process.env.socket_server; // external IP address of socket.io app
 var mapper = require('../mapper');
-var io = require('socket.io-client')
 
 /**
  * Be careful not to use the 'stderr'/'stdout'/'console' as log destination since it is used to communicate with the
@@ -20,7 +19,7 @@ var io = require('socket.io-client')
 function recordProcessor() {
     var log = logger().getLogger('recordProcessor');
     var shardId;
-    var socket = io.connect('http://' + external_IP + '/', {query: 'args={"from_consumer": "true"}'});
+    var socket = require('socket.io-client')('http://' + external_IP + '/', {reconnect: true, query: 'consumer_token='+process.env.consumer_token});
     var pg_config = {
         user: process.env.DB_USER,
         database: process.env.DB_NAME,
@@ -48,7 +47,6 @@ function recordProcessor() {
         initialize: function (initializeInput, completeCallback) {
             log.info('In initialize');
             shardId = initializeInput.shardId;
-            socket.emit('data', 'In initialize');
             mapper.update_map(pg_pool).then(function (new_map) {
                 map = new_map;
                 completeCallback();
@@ -60,14 +58,12 @@ function recordProcessor() {
 
         processRecords: function (processRecordsInput, completeCallback) {
             log.info('In processRecords');
-            socket.emit('data', 'In processRecords');
             if (!processRecordsInput || !processRecordsInput.records) {
                 completeCallback();
                 return;
             }
             var records = processRecordsInput.records;
             var record, data, sequenceNumber, partitionKey;
-            socket.emit('data', 'records length: ' + records.length);
             for (var i = 0; i < records.length; ++i) {
                 record = records[i];
                 data = new Buffer(record.data, 'base64').toString();
@@ -110,4 +106,3 @@ function recordProcessor() {
 }
 
 kcl(recordProcessor()).run();
-

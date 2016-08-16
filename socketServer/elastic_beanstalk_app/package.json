@@ -3,13 +3,17 @@
   "version": "0.0.1",
   "description": "test",
   "dependencies": {
-    "express": "^4.13.4",
-    "socket.io": "^1.4.6",
-    "socket.io-redis": "^1.0.0",
-    "promise": "^7.1.1",
-    "redis": "^2.6.2"
+    "express": "~4.13.4",
+    "socket.io": "~1.4.6",
+    "promise": "~7.1.1",
+    "redis": "~2.6.2"
   },
   "scripts": {
     "start": "node index.js"
-  }
+  },
+  "main": "index.js",
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
