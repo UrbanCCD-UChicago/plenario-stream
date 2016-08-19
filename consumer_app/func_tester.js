@@ -27,13 +27,16 @@ var pg_pool = new pg.Pool(pg_config);
 var obs = {
     "node_id": "ArrayOfThings1",
     "datetime": "2016-08-05T11:11:11",
-    "sensor": "PRE450",
-    "data": [40.29]
+    "sensor": "HTU21D",
+    "data": [40.29, 78.4]
 };
 
 var map = {};
+mapper.update_map(pg_pool).then(function(new_map){
+    console.log(mapper.format_obs(obs, new_map));
+});
+// mapper.parse_insert_emit(obs, map, pg_pool, rs_pool, require('socket.io-client')('http://127.0.0.1:8081/'));
 
-mapper.parse_insert_emit(obs, map, pg_pool, rs_pool, require('socket.io-client')('http://127.0.0.1/'));
 
 
 

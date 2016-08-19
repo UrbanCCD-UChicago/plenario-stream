@@ -8,7 +8,6 @@ var util = require('util');
 var pg = require('pg');
 var kcl = require('../');
 var logger = require('../util/logger');
-var external_IP = process.env.socket_server; // external IP address of socket.io app
 var mapper = require('../mapper');
 
 /**
@@ -19,7 +18,7 @@ var mapper = require('../mapper');
 function recordProcessor() {
     var log = logger().getLogger('recordProcessor');
     var shardId;
-    var socket = require('socket.io-client')('http://' + external_IP + '/', {reconnect: true, query: 'consumer_token='+process.env.consumer_token});
+    var socket = require('socket.io-client')('http://streaming.plenar.io/', {reconnect: true, query: 'consumer_token='+process.env.consumer_token});
     var pg_config = {
         user: process.env.DB_USER,
         database: process.env.DB_NAME,
