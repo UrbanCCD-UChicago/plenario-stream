@@ -28,7 +28,8 @@
     "machina": "~1.0.0-1",
     "socket.io-client": "~1.4.6",
     "promise": "~7.1.1",
-    "pg": "~6.0.3"
+    "pg": "~6.0.3",
+    "request": "~2.74.0"
   },
   "devDependencies": {
     "async": "~0.9.0",

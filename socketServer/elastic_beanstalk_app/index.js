@@ -28,23 +28,56 @@ io.on('connect', function(socket) {
             });
         }
         else {
-            socket.emit('internal_error', 'consumer_token authentication failed');
+            console.log('ERROR: consumer_token authentication failed');
+            socket.disconnect()
         }
     }
-    else {
-        console.log('client connected');
+    else block: {
+        console.log(socket.handshake);
         // take in client arguments from query.args in the initial handshake
-        // if user doesn't pass any args, or doesn't pass a sensor_network arg, stream them everything for AoT
-        var args;
-        if (socket.handshake.query.args) {
-            args = JSON.parse(socket.handshake.query.args);
-            if (!(args.sensor_network)) {
-                args.sensor_network = 'ArrayOfThings'
+        // if user doesn't pass any args, or doesn't pass a sensor_network arg, stream them everything from AoT
+        var args = {};
+        try {
+            if (socket.handshake.query.nodes) {
+                var nodes = socket.handshake.query.nodes;
+                if (!Array.isArray(nodes)) {
+                    nodes.replace('[', '');
+                    nodes.replace(']', '');
+                    nodes = nodes.split(',');
+                }
+                args.nodes = nodes
+            }
+            if (socket.handshake.query.features_of_interest) {
+                var features = socket.handshake.query.features_of_interest;
+                if (!Array.isArray(features)) {
+                    features.replace('[', '');
+                    features.replace(']', '');
+                    features = features.split(',');
+                }
+                args.features_of_interest = features
+            }
+            if (socket.handshake.query.sensors) {
+                var sensors = socket.handshake.query.sensors;
+                if (!Array.isArray(sensors)) {
+                    sensors.replace('[', '');
+                    sensors.replace(']', '');
+                    sensors = sensors.split(',');
+                }
+                args.sensors = sensors
             }
         }
-        else {
-            args = {sensor_network: 'ArrayOfThings'}
+        catch (err) {
+            socket.emit('internal_error', 'Could not parse query args. ' + err);
+            socket.disconnect();
+            break block
         }
+        if (!(socket.handshake.query.sensor_network)) {
+            args.sensor_network = 'ArrayOfThings'
+        }
+        else {
+            args.sensor_network = socket.handshake.query.sensor_network
+        }
+        console.log(args);
         // send a GET request to the query API that will return no data, but will identify validation errors
         var validation_query = util.format('http://'+process.env.plenario_host+'/v1/api/sensor-networks/%s/query?limit=0', args.sensor_network);
         for (var i = 0; i < Object.keys(args).length; i++) {
@@ -58,19 +91,29 @@ io.on('connect', function(socket) {
                 output += data;
             });
             response.on('end', function () {
-                if (JSON.parse(output).error) {
-                    socket.emit('internal_error', JSON.parse(output).error);
-                }
-                else {
-                    // add socket to a room based on their query arguments
-                    socket.join(JSON.stringify(args));
-                    if (rooms[JSON.stringify(args)]) {
-                        rooms[JSON.stringify(args)]++;
+                // if the user gives invalid query args and plenar.io throws an error,
+                // JSON.parse will try to parse html and fail
+                try {
+                    if (JSON.parse(output).error) {
+                        socket.emit('internal_error', JSON.parse(output).error);
+                        socket.disconnect()
                     }
                     else {
-                        rooms[JSON.stringify(args)] = 1;
+                        // add socket to a room based on its query arguments
+                        socket.join(JSON.stringify(args));
+                        if (rooms[JSON.stringify(args)]) {
+                            rooms[JSON.stringify(args)]++;
+                        }
+                        else {
+                            rooms[JSON.stringify(args)] = 1;
+                        }
+                        console.log('rooms open:')
+                        console.log(rooms)
                     }
-                    console.log(rooms);
+                }
+                catch(err) {
+                    socket.emit('internal_error', 'Error parsing validation query return. '+err);
+                    socket.disconnect();
                 }
             });
         });

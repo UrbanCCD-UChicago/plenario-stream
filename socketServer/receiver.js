@@ -1,7 +1,8 @@
-var socket = require('socket.io-client')('http://localhost:8081/', {query: 'args={"sensors":["PRE450"]}'});
+var socket = require('socket.io-client')('http://streaming.plenar.io?sensor_network=TestNetwork&sensors=sensor4');
+
 socket.on('data', function (data) {
-        console.log(data);
+    console.log(data);
 });
 socket.on('internal_error', function (err) {
-        console.log(err);
+    console.log(err);
 });

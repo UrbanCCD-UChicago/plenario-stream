@@ -1,5 +1,9 @@
 var promise = require('promise');
 var util = require('util');
+var request = require('request');
+var logger = require('./util/logger');
+
+var log = logger().getLogger('mapper');
 
 /**
  * pulls from postgres to create most up-to-date mapping of sensor names to array of properties
@@ -16,12 +20,12 @@ var update_map = function (pg_pool) {
     var p = new promise(function (fulfill, reject) {
         pg_pool.connect(function (err, client, done) {
             if (err) {
-                reject('error connecting client ', err);
+                reject('error connecting client in update_map ', err);
             }
             client.query('SELECT * FROM sensor__sensors', function (err, result) {
                 done();
                 if (err) {
-                    reject('error running query ', err);
+                    reject('error running query in update_map ', err);
                 }
                 var map = {};
                 for (var i = 0; i < result.rows.length; i++) {
@@ -52,14 +56,51 @@ var update_map = function (pg_pool) {
  */
 var parse_insert_emit = function (obs, map, pg_pool, rs_pool, socket) {
     // pulls postgres immediately if sensor is not known or properties have been added
-    if (!(obs['sensor'] in map) ||
-        ((obs['sensor'] in map) && (obs['data'].length > map[obs['sensor']].length))) {
+    if (!(obs['sensor'] in map)) {
         update_map(pg_pool).then(function (new_map) {
-            if (!(obs['sensor'] in new_map) ||
-                ((obs['sensor'] in new_map) && (obs['data'].length != new_map[obs['sensor']].length))) {
+            if (!(obs['sensor'] in new_map)) {
                 // this means we don't have the mapping for a sensor and it's not in postgres
-                // OR the observation length is larger than what's in postgres
-                // send message to metadata manager
+                // send message to apiary
+                request.post('http://'+process.env.plenario_host+'/apiary/send_message',
+                    {json: {name: obs['sensor'],
+                        value: 'Sensor ' + obs['sensor'] + ' not found in sensor metadata. ' +
+                        'Please add this sensor.'}}, function(err, response, body){
+                        log.info(body);
+                        if (err) {
+                            log.error(err);
+                        }
+                    });
+                // banish observation to the 'Island of Misfit Values'
+                redshift_insert(obs, new_map, rs_pool, true);
+                return true
+            }
+            else {
+                // updating the map fixed the discrepancy
+                redshift_insert(obs, new_map, rs_pool, false);
+                var obs_list = format_obs(obs, new_map);
+                for (var i = 0; i < obs_list.length; i++) {
+                    socket.emit('internal_data', obs_list[i]);
+                }
+                return true
+            }
+        }, function (err) {
+            log.error(err)
+        })
+    }
+    else if ((obs['sensor'] in map) && (obs['data'].length > map[obs['sensor']].length)) {
+        update_map(pg_pool).then(function (new_map) {
+            if ((obs['sensor'] in new_map) && (obs['data'].length > new_map[obs['sensor']].length)) {
+                // this means the observation length is larger than what's in postgres
+                // send message to apiary
+                request.post('http://'+process.env.plenario_host+'/apiary/send_message',
+                    {json: {name: obs['sensor'],
+                        value: 'Received data from sensor ' + obs['sensor'] + ' that exceeds length of observed properties. ' +
+                        'Please update the list of properties for this sensor.'}}, function(err, response, body){
+                        log.info(body);
+                        if (err) {
+                            log.error(err);
+                        }
+                    });
                 // banish observation to the 'Island of Misfit Values'
                 redshift_insert(obs, new_map, rs_pool, true);
                 return true
@@ -74,7 +115,7 @@ var parse_insert_emit = function (obs, map, pg_pool, rs_pool, socket) {
                 return true
             }
         }, function (err) {
-            // handle error without console
+            log.error(err)
         })
     }
     // preliminary checks show that the mapping will work to input values into the database - go for it
@@ -108,13 +149,17 @@ function redshift_insert(obs, map, rs_pool, misfit) {
     // if node_config format is accepted, change this
     rs_pool.connect(function (err, rs_client, done) {
         if (err) {
-            // handle error without console
+            log.error('error connecting client in redshift_insert ', err)
         }
         if (misfit) {
             var query_text = util.format("INSERT INTO unknownfeature " +
                 "VALUES ('%s', '%s', '%s', '%s', 1234);", // fake procedure hack
                 obs['node_id'], obs['datetime'], obs['sensor'], JSON.stringify(obs['data']));
-            rs_client.query(query_text);
+            rs_client.query(query_text, function(err) {
+                if (err) {
+                    log.error('error inserting data into unknownfeature table ', err)
+                }
+            });
             done();
         }
         else {
@@ -146,8 +191,11 @@ function redshift_insert(obs, map, rs_pool, misfit) {
                     }
                 }
                 query_text += ', 1234);'; // fake procedure hack
-                console.log(query_text);
-                rs_client.query(query_text);
+                rs_client.query(query_text, function(err) {
+                    if (err) {
+                        log.error('error inserting data into err ' + feature.toLowerCase() + 'table ', err)
+                    }
+                });
                 done();
             }
         }

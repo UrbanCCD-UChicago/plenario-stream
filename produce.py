@@ -42,22 +42,14 @@ def send_data(client, data):
     client.put_record(**params)
 
 if __name__ == '__main__':
-    count = 0
+    c = make_client()
+    messages = []
     while True:
-        for i in range(1,2):
-            temperature = str(random.uniform(70,90))
-            pressure = str(random.uniform(28,32))
-            message1 = '{"node_id": "ArrayOfThings'+str(i)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
-                                                         '"sensor": "PRE450","data": '+str([random.randrange(0, 100)])+'}'
-            message2 = '{"node_id": "ArrayOfThings'+str(i)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
-                                                         '"sensor": "TMP112","data": '+str([random.randrange(0, 100)])+'}'
-            message3 = '{"node_id": "ArrayOfThings'+str(i)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
-                                                         '"sensor": "UBQ120","data": '+str([random.randrange(0, 100),random.randrange(0, 100),random.randrange(0, 100)])+'}'
-            c = make_client()
-            print message1
-            print message2
-            print message3
-            send_data(c, message1.encode('ascii'))
-            send_data(c, message2.encode('ascii'))
-            send_data(c, message3.encode('ascii'))
-        time.sleep(4)
+        for n in range(1,501):
+            for s in range(1,51):
+                messages.append('{"node_id": "'+hex(n)+'","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
+                          '"sensor": "sensor'+str(s)+'","data": '+str([random.uniform(0, 100), random.uniform(0, 100), random.uniform(0, 100)])+'}')
+        for message in messages:
+            print message
+            send_data(c, message.encode('ascii'))
+        time.sleep(20)

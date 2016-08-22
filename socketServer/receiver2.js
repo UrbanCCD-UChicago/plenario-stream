@@ -1,4 +1,4 @@
-socket = require('socket.io-client')('http://localhost:8081/');
+socket = require('socket.io-client')('http://streaming.plenar.io/');
 socket.on('data', function (data) {
         console.log(data);
 });
