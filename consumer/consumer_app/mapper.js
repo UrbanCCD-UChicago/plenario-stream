@@ -193,7 +193,7 @@ function redshift_insert(obs, map, rs_pool, misfit) {
                 query_text += ', 1234);'; // fake procedure hack
                 rs_client.query(query_text, function(err) {
                     if (err) {
-                        log.error('error inserting data into err ' + feature.toLowerCase() + 'table ', err)
+                        log.error('error inserting data into ' + feature.toLowerCase() + ' table ', err)
                     }
                 });
                 done();
@@ -219,10 +219,12 @@ function format_obs(obs, map) {
     // features is simply an array of feature names matching the order of obs_list for easy key finding
     var obs_list = [];
     var features = [];
+    var feature;
+    var property;
     for (var i = 0; i < map[obs['sensor']].length; i++) {
-        var feature = map[obs['sensor']][i].split('.')[0];
-        var property = map[obs['sensor']][i].split('.')[1];
-        if (!(feature in features)) {
+        feature = map[obs['sensor']][i].split('.')[0];
+        property = map[obs['sensor']][i].split('.')[1];
+        if (features.indexOf(feature) < 0) {
             obs_list.push({feature_of_interest: feature,
                 node_id: obs.node_id,
                 sensor: obs.sensor,
@@ -230,7 +232,7 @@ function format_obs(obs, map) {
                 results: {}});
             features.push(feature)
         }
-        obs_list[features.indexOf(feature)].results[property] = obs.data[i]
+        obs_list[features.indexOf(feature)].results[property] = obs.data[i];
     }
     return obs_list
 }

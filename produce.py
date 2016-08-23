@@ -43,6 +43,7 @@ def send_data(client, data):
 
 if __name__ == '__main__':
     c = make_client()
+    count = 0
     messages = []
     while True:
         for n in range(1,501):
@@ -52,4 +53,5 @@ if __name__ == '__main__':
         for message in messages:
             print message
             send_data(c, message.encode('ascii'))
-        time.sleep(20)
+            time.sleep(30.0/count)
+
