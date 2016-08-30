@@ -9,6 +9,8 @@ var pg = require('pg');
 var kcl = require('../');
 var logger = require('../util/logger');
 var mapper = require('../mapper');
+// array of all sensor names whose metadata appears to be incorrect
+var blacklist = [];
 
 /**
  * Be careful not to use the 'stderr'/'stdout'/'console' as log destination since it is used to communicate with the
@@ -18,7 +20,7 @@ var mapper = require('../mapper');
 function recordProcessor() {
     var log = logger().getLogger('recordProcessor');
     var shardId;
-    var socket = require('socket.io-client')('http://streaming.plenar.io/', {reconnect: true, query: 'consumer_token='+process.env.consumer_token});
+    var socket = require('socket.io-client')('http://streaming.plenar.io/', {reconnect: true, query: 'consumer_token='+process.env.CONSUMER_TOKEN});
     var pg_config = {
         user: process.env.DB_USER,
         database: process.env.DB_NAME,
@@ -46,13 +48,7 @@ function recordProcessor() {
         initialize: function (initializeInput, completeCallback) {
             log.info('In initialize');
             shardId = initializeInput.shardId;
-            mapper.update_map(pg_pool).then(function (new_map) {
-                map = new_map;
-                completeCallback();
-            }, function (err) {
-                log.info('error connecting to postgres: ', err);
-                completeCallback();
-            });
+            completeCallback();
         },
 
         processRecords: function (processRecordsInput, completeCallback) {
@@ -69,13 +65,19 @@ function recordProcessor() {
                 sequenceNumber = record.sequenceNumber;
                 partitionKey = record.partitionKey;
                 // assumes a string is being read from the stream
-                if (mapper.parse_insert_emit(JSON.parse(data), map, pg_pool, rs_pool, socket) == true) {
-                    mapper.update_map(pg_pool).then(function (new_map) {
-                        map = new_map;
-                        log.info('sensor mapping updated');
-                    }, function (err){
-                        log.info('error updating sensor mapping: ', err);
-                    })
+                log.info('running parse_insert_emit');
+                try {
+                    if (mapper.parse_insert_emit(JSON.parse(data), map, pg_pool, rs_pool, socket, blacklist) == true) {
+                        mapper.update_map(pg_pool).then(function (new_map) {
+                            map = new_map;
+                            log.info('sensor mapping updated');
+                        }, function (err) {
+                            log.error('error updating sensor mapping ', err);
+                        })
+                    }
+                }
+                catch (err) {
+                    log.error(err)
                 }
                 log.info(util.format('ShardID: %s, Record: %s, SeqenceNumber: %s, PartitionKey:%s', shardId, data, sequenceNumber, partitionKey));
             }

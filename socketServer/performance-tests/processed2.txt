@@ -1,0 +1,1678 @@
+Testing v8 version different from logging version
+Code move event for unknown code: 0x1fd2aec41760
+Code move event for unknown code: 0x1fd2ae9d4d20
+Code move event for unknown code: 0x1fd2aebfc2c0
+Code move event for unknown code: 0x1fd2aebfe460
+Code move event for unknown code: 0x1fd2aeae73c0
+Code move event for unknown code: 0x1fd2aee26a00
+Code move event for unknown code: 0x1fd2aee81760
+Code move event for unknown code: 0x1fd2aeea4620
+dropping: overflow
+dropping: overflow
+dropping: overflow
+dropping: overflow
+dropping: overflow
+Statistical profiling result from isolate-0x21f85c0-v8.log, (117843 ticks, 282 unaccounted, 0 excluded).
+
+ [Shared libraries]:
+   ticks  total  nonlib   name
+  47058   39.9%          /lib64/libc-2.17.so
+  32581   27.6%          /opt/elasticbeanstalk/node-install/node-v4.4.6-linux-x64/bin/node
+   6551    5.6%          /lib64/libpthread-2.17.so
+    209    0.2%          /usr/lib64/libstdc++.so.6.0.19
+    153    0.1%          [vdso]
+      2    0.0%          /lib64/libm-2.17.so
+
+ [JavaScript]:
+   ticks  total  nonlib   name
+   3193    2.7%   10.2%  LazyCompile: *encodeCodePoint /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:81:26
+   3000    2.5%    9.6%  LazyCompile: *stringToBuffer /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:337:24
+   1936    1.6%    6.2%  LazyCompile: *ucs2decode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:23:21
+   1706    1.4%    5.5%  Stub: StringAddStub_CheckNone_NotTenured
+   1545    1.3%    4.9%  LazyCompile: *utf8encode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:103:21
+   1281    1.1%    4.1%  Stub: GrowArrayElementsStub {1}
+   1252    1.1%    4.0%  LazyCompile: *fromCharCode native string.js:561:28
+    773    0.7%    2.5%  Stub: InstanceofStub
+    728    0.6%    2.3%  LazyCompile: *Socket.send.Socket.write /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:352:34
+    678    0.6%    2.2%  LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    591    0.5%    1.9%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+    484    0.4%    1.5%  Stub: LoadICStub
+    402    0.3%    1.3%  KeyedLoadIC: A keyed load IC from the snapshot {1}
+    389    0.3%    1.2%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:121:39
+    327    0.3%    1.0%  LazyCompile: *emit events.js:117:44
+    261    0.2%    0.8%  LazyCompile: *Uint8ArrayConstructByArrayBuffer native typedarray.js:35:42
+    255    0.2%    0.8%  Stub: CEntryStub
+    248    0.2%    0.8%  LazyCompile: *Client.packet /var/app/current/node_modules/socket.io/lib/client.js:140:35
+    244    0.2%    0.8%  LazyCompile: *Socket.packet /var/app/current/node_modules/socket.io/lib/socket.js:206:35
+    236    0.2%    0.8%  LazyCompile: ~writeToEngine /var/app/current/node_modules/socket.io/lib/client.js:145:25
+    223    0.2%    0.7%  LazyCompile: *Buffer.concat buffer.js:208:25
+    218    0.2%    0.7%  Builtin: JSConstructStubGeneric
+    216    0.2%    0.7%  LazyCompile: *toString native date.js:200:22
+    191    0.2%    0.6%  LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    188    0.2%    0.6%  LazyCompile: *subarray native typedarray.js:165:28
+    185    0.2%    0.6%  Builtin: ArgumentsAdaptorTrampoline
+    160    0.1%    0.5%  Stub: ToBooleanStub {1}
+    153    0.1%    0.5%  LazyCompile: *Uint8Array native typedarray.js:122:31
+    148    0.1%    0.5%  LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    143    0.1%    0.5%  LazyCompile: ~Socket._writeGeneric net.js:630:42
+    142    0.1%    0.5%  LazyCompile: *nextTick node.js:478:22
+    109    0.1%    0.3%  Handler: An IC handler from the snapshot {1}
+    106    0.1%    0.3%  StoreMegamorphic: args_count: 0
+    105    0.1%    0.3%  LazyCompile: ~parserOnIncoming _http_server.js:459:28
+    102    0.1%    0.3%  LazyCompile: *Buffer buffer.js:50:16
+     99    0.1%    0.3%  KeyedLoadIC: A keyed load IC from the snapshot
+     97    0.1%    0.3%  Stub: CEntryStub {1}
+     94    0.1%    0.3%  Stub: GrowArrayElementsStub
+     87    0.1%    0.3%  LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     85    0.1%    0.3%  LazyCompile: *parserOnHeadersComplete _http_common.js:43:33
+     81    0.1%    0.3%  LazyCompile: *exports._unrefActive timers.js:599:32
+     77    0.1%    0.2%  LazyCompile: *_tickCallback node.js:336:27
+     76    0.1%    0.2%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:203:35
+     75    0.1%    0.2%  Stub: CallApiAccessorStub {1}
+     74    0.1%    0.2%  LazyCompile: *setPrototypeOf native v8natives.js:653:30
+     70    0.1%    0.2%  LazyCompile: *Readable.read _stream_readable.js:258:35
+     69    0.1%    0.2%  Handler: An IC handler from the snapshot {3}
+     67    0.1%    0.2%  Stub: CompareICStub {1}
+     66    0.1%    0.2%  LazyCompile: *addListener events.js:191:58
+     64    0.1%    0.2%  Stub: CallConstructStub {1}
+     62    0.1%    0.2%  Stub: CallFunctionStub_Args1
+     62    0.1%    0.2%  Stub: CallConstructStub
+     61    0.1%    0.2%  LazyCompile: ~proxy /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/after/index.js:10:19
+     60    0.1%    0.2%  LazyCompile: *min native math.js:60:17
+     60    0.1%    0.2%  Handler: An IC handler from the snapshot {13}
+     58    0.0%    0.2%  Stub: FastNewClosureStub {1}
+     57    0.0%    0.2%  LazyCompile: *OutgoingMessage _http_outgoing.js:47:25
+     56    0.0%    0.2%  LazyCompile: INSTANCE_OF native runtime.js:364:33
+     56    0.0%    0.2%  LazyCompile: *ReadableState _stream_readable.js:15:23
+     55    0.0%    0.2%  Stub: BinaryOpWithAllocationSiteStub {1}
+     54    0.0%    0.2%  LazyCompile: ~resOnFinish _http_server.js:495:25
+     54    0.0%    0.2%  LazyCompile: *test native regexp.js:132:20
+     53    0.0%    0.2%  LazyCompile: *OutgoingMessage.end _http_outgoing.js:539:41
+     52    0.0%    0.2%  Stub: LoadConstantStub {1}
+     52    0.0%    0.2%  KeyedStoreIC: A keyed store IC from the snapshot
+     51    0.0%    0.2%  LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     51    0.0%    0.2%  LazyCompile: exports.decodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:120:33
+     50    0.0%    0.2%  Stub: RegExpExecStub
+     50    0.0%    0.2%  Stub: FastNewClosureStub
+     50    0.0%    0.2%  LazyCompile: nextTickCallbackWith2Args node.js:439:39
+     49    0.0%    0.2%  Stub: StoreFastElementStub {1}
+     49    0.0%    0.2%  LazyCompile: *indexOf native array.js:1076:22
+     48    0.0%    0.2%  Stub: NameDictionaryLookupStub
+     48    0.0%    0.2%  Stub: LoadFieldStub {6}
+     48    0.0%    0.2%  LazyCompile: ServerResponse.writeHead _http_server.js:160:46
+     48    0.0%    0.2%  LazyCompile: *storeHeader _http_outgoing.js:302:21
+     47    0.0%    0.2%  LazyCompile: createBuffer buffer.js:22:22
+     46    0.0%    0.1%  LazyCompile: *Server.verify /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:133:35
+     46    0.0%    0.1%  LazyCompile: *IncomingMessage _http_incoming.js:20:25
+     45    0.0%    0.1%  Stub: FastNewContextStub {2}
+     44    0.0%    0.1%  Stub: CallFunctionStub_Args2
+     44    0.0%    0.1%  Stub: BinaryOpWithAllocationSiteStub(ADD_CreateAllocationMementos:Smi*String->String)
+     43    0.0%    0.1%  LazyCompile: *Decode native uri.js:156:16
+     43    0.0%    0.1%  Builtin: JSEntryTrampoline
+     42    0.0%    0.1%  LazyCompile: STRING_ADD_LEFT native runtime.js:188:41
+     42    0.0%    0.1%  LazyCompile: *ToPositiveInteger native runtime.js:672:27
+     42    0.0%    0.1%  LazyCompile: *Server.handleRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:197:42
+     42    0.0%    0.1%  LazyCompile: *QueryString.parse.QueryString.decode querystring.js:207:50
+     41    0.0%    0.1%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:234:22
+     41    0.0%    0.1%  LazyCompile: *readableAddChunk _stream_readable.js:124:26
+     41    0.0%    0.1%  LazyCompile: *parseInt native v8natives.js:37:24
+     41    0.0%    0.1%  LazyCompile: *Url.parse url.js:88:31
+     41    0.0%    0.1%  LazyCompile: *OutgoingMessage._storeHeader _http_outgoing.js:189:50
+     40    0.0%    0.1%  Stub: StoreFastElementStub
+     40    0.0%    0.1%  LazyCompile: *removeListener events.js:272:28
+     39    0.0%    0.1%  Stub: LoadICStub {1}
+     39    0.0%    0.1%  LazyCompile: ~onDrain /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:323:19
+     39    0.0%    0.1%  Handler: hasOwnProperty {NaN}
+     38    0.0%    0.1%  LazyCompile: ~callback zlib.js:562:20
+     38    0.0%    0.1%  LazyCompile: *ServerResponse.assignSocket _http_server.js:134:49
+     37    0.0%    0.1%  Stub: SubStringStub
+     37    0.0%    0.1%  LazyCompile: ~respond /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:318:19
+     37    0.0%    0.1%  LazyCompile: ~removeListener events.js:272:28
+     37    0.0%    0.1%  LazyCompile: APPLY_PREPARE native runtime.js:412:37
+     37    0.0%    0.1%  LazyCompile: *parserOnMessageComplete _http_common.js:130:33
+     37    0.0%    0.1%  LazyCompile: *indexOf native string.js:76:25
+     36    0.0%    0.1%  Builtin: NotifyStubFailureSaveDoubles
+     35    0.0%    0.1%  Builtin: FunctionCall
+     34    0.0%    0.1%  Stub: StoreArrayLiteralElementStub
+     34    0.0%    0.1%  Stub: LoadConstantStub {6}
+     34    0.0%    0.1%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:246:62
+     34    0.0%    0.1%  LazyCompile: *Socket.setPingTimeout /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:128:44
+     34    0.0%    0.1%  LazyCompile: *Socket.onPacket /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:78:38
+     34    0.0%    0.1%  Handler: parseInt {2}
+     34    0.0%    0.1%  Handler: An IC handler from the snapshot {6}
+     33    0.0%    0.1%  Stub: LoadConstantStub
+     32    0.0%    0.1%  Stub: LoadConstantStub {2}
+     32    0.0%    0.1%  LazyCompile: ~g events.js:255:13
+     32    0.0%    0.1%  Handler: An IC handler from the snapshot {7}
+     30    0.0%    0.1%  Stub: CallFunctionStub {1}
+     30    0.0%    0.1%  RegExp: ^(\\/\\/?(?!\\/)[^\\?\\s]*)(\\?[^\\s]*)?$
+     30    0.0%    0.1%  LazyCompile: ~onParserExecute _http_server.js:370:27
+     30    0.0%    0.1%  LazyCompile: nextTickCallbackWith1Arg node.js:428:38
+     30    0.0%    0.1%  KeyedLoadIC: A keyed load IC from the snapshot {2}
+     29    0.0%    0.1%  LazyCompile: *EventEmitter events.js:5:22
+     28    0.0%    0.1%  Stub: StringAddStub
+     28    0.0%    0.1%  LazyCompile: *isArray native array.js:1194:22
+     28    0.0%    0.1%  LazyCompile: *clearBuffer _stream_writable.js:369:21
+     28    0.0%    0.1%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/lib/index.js:255:29
+     28    0.0%    0.1%  Handler: An IC handler from the snapshot {12}
+     27    0.0%    0.1%  KeyedStoreIC: A keyed store IC from the snapshot {1}
+     26    0.0%    0.1%  Stub: BinaryOpWithAllocationSiteStub
+     26    0.0%    0.1%  RegExp: ^Connection$
+     26    0.0%    0.1%  LazyCompile: ~emitPendingUnhandledRejections node.js:494:44
+     26    0.0%    0.1%  LazyCompile: ~WritableState.onwrite _stream_writable.js:88:26
+     25    0.0%    0.1%  Stub: RecordWriteStub
+     25    0.0%    0.1%  LazyCompile: decodeStr querystring.js:288:19
+     25    0.0%    0.1%  LazyCompile: *Uint8ArrayConstructByLength native typedarray.js:76:37
+     25    0.0%    0.1%  Handler: An IC handler from the snapshot
+     24    0.0%    0.1%  Stub: BinaryOpWithAllocationSiteStub(ADD_CreateAllocationMementos:String*Generic->String)
+     24    0.0%    0.1%  LazyCompile: QueryString.unescape querystring.js:81:32
+     24    0.0%    0.1%  LazyCompile: *onwrite _stream_writable.js:322:17
+     24    0.0%    0.1%  LazyCompile: *Readable.on _stream_readable.js:672:33
+     24    0.0%    0.1%  LazyCompile: *OutgoingMessage._writeRaw _http_outgoing.js:144:47
+     23    0.0%    0.1%  Stub: InstanceofStub_INLINE
+     23    0.0%    0.1%  LazyCompile: *exec native regexp.js:85:22
+     23    0.0%    0.1%  LazyCompile: *Zlib zlib.js:291:14
+     23    0.0%    0.1%  LazyCompile: *OutgoingMessage._send _http_outgoing.js:121:43
+     23    0.0%    0.1%  Handler: An IC handler from the snapshot {19}
+     22    0.0%    0.1%  Stub: ToBooleanStub
+     22    0.0%    0.1%  Stub: JSEntryStub
+     22    0.0%    0.1%  Stub: CompareICStub {18}
+     21    0.0%    0.1%  Stub: StoreFastElementStub {2}
+     21    0.0%    0.1%  LazyCompile: DELETE native runtime.js:349:23
+     21    0.0%    0.1%  LazyCompile: *Stream stream.js:22:16
+     21    0.0%    0.1%  Handler: Object
+     20    0.0%    0.1%  Stub: LoadIndexedStringStub
+     20    0.0%    0.1%  LazyCompile: ~cleanup /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:141:20
+     20    0.0%    0.1%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:247:41
+     20    0.0%    0.1%  LazyCompile: *utf8decode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:200:21
+     20    0.0%    0.1%  LazyCompile: *substr native string.js:509:22
+     20    0.0%    0.1%  LazyCompile: *InnerArraySome native array.js:949:24
+     19    0.0%    0.1%  Stub: StoreFieldStub
+     19    0.0%    0.1%  Stub: RecordWriteStub {6}
+     19    0.0%    0.1%  Stub: FastNewContextStub {3}
+     19    0.0%    0.1%  Stub: ArraySingleArgumentConstructorStub
+     19    0.0%    0.1%  LazyCompile: ~onParserExecuteCommon _http_server.js:376:33
+     19    0.0%    0.1%  LazyCompile: ~XHR.headers /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:59:33
+     19    0.0%    0.1%  LazyCompile: *exports.active timers.js:31:26
+     19    0.0%    0.1%  LazyCompile: *WritableState _stream_writable.js:26:23
+     19    0.0%    0.1%  Handler: An IC handler from the snapshot {9}
+     18    0.0%    0.1%  Stub: RecordWriteStub {2}
+     18    0.0%    0.1%  LazyCompile: *split native string.js:420:23
+     18    0.0%    0.1%  LazyCompile: *replace native string.js:146:23
+     18    0.0%    0.1%  LazyCompile: *join native array.js:333:19
+     18    0.0%    0.1%  LazyCompile: *ToName native runtime.js:578:16
+     18    0.0%    0.1%  LazyCompile: *Polling.onDataRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:124:44
+     18    0.0%    0.1%  LazyCompile: *InnerArrayFilter native array.js:891:26
+     18    0.0%    0.1%  Handler: An IC handler from the snapshot {8}
+     18    0.0%    0.1%  Handler: An IC handler from the snapshot {22}
+     17    0.0%    0.1%  Stub: ToBooleanStub(Smi)
+     17    0.0%    0.1%  Stub: CallFunctionStub_Args3
+     17    0.0%    0.1%  RegExp: ^[a-zA-Z0-9_!#$%&'*+.^`|~-]+$
+     17    0.0%    0.1%  LazyCompile: nextTickCallbackWith0Args node.js:417:39
+     17    0.0%    0.1%  LazyCompile: EQUALS native runtime.js:75:23
+     17    0.0%    0.1%  LazyCompile: *howMuchToRead _stream_readable.js:219:23
+     17    0.0%    0.1%  LazyCompile: *XHR.onRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:39:36
+     17    0.0%    0.1%  LazyCompile: *IncomingMessage._addHeaderLine _http_incoming.js:123:52
+     16    0.0%    0.1%  Stub: StubFailureTrampolineStub
+     16    0.0%    0.1%  Stub: RecordWriteStub {13}
+     16    0.0%    0.1%  Stub: FastNewContextStub {1}
+     16    0.0%    0.1%  Stub: CompareICStub {7}
+     16    0.0%    0.1%  Stub: CallApiAccessorStub
+     16    0.0%    0.1%  LazyCompile: ~onEnd /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:170:18
+     16    0.0%    0.1%  LazyCompile: ~fromList _stream_readable.js:828:18
+     16    0.0%    0.1%  LazyCompile: *ToObject native runtime.js:581:18
+     16    0.0%    0.1%  LazyCompile: *Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+     16    0.0%    0.1%  Builtin: FunctionApply
+     15    0.0%    0.0%  Stub: ToBooleanStub(Null)
+     15    0.0%    0.0%  Stub: RecordWriteStub {20}
+     15    0.0%    0.0%  Stub: FastCloneShallowArrayStub
+     15    0.0%    0.0%  Stub: ArgumentsAccessStub
+     15    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:290:37
+     15    0.0%    0.0%  LazyCompile: *ToString native runtime.js:563:18
+     15    0.0%    0.0%  LazyCompile: *Polling.compress /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:332:39
+     15    0.0%    0.0%  Handler: data {1}
+     14    0.0%    0.0%  Stub: CallFunctionStub {2}
+     14    0.0%    0.0%  Stub: ArrayBufferViewLoadFieldStub
+     14    0.0%    0.0%  RegExp: ^Date$
+     14    0.0%    0.0%  LazyCompile: ~InnerArrayJoin native array.js:317:24
+     14    0.0%    0.0%  LazyCompile: ~CorkedRequest.finish _stream_writable.js:507:17
+     14    0.0%    0.0%  LazyCompile: ~<anonymous> native v8natives.js:1199:16
+     14    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:265:39
+     14    0.0%    0.0%  LazyCompile: nextTickCallbackWithManyArgs node.js:461:42
+     14    0.0%    0.0%  LazyCompile: *toLowerCase native string.js:533:29
+     14    0.0%    0.0%  LazyCompile: *some native array.js:969:19
+     14    0.0%    0.0%  LazyCompile: *parserOnBody _http_common.js:111:22
+     14    0.0%    0.0%  LazyCompile: *match native string.js:118:23
+     14    0.0%    0.0%  LazyCompile: *isNaN native v8natives.js:29:21
+     14    0.0%    0.0%  LazyCompile: *afterWrite _stream_writable.js:350:20
+     14    0.0%    0.0%  LazyCompile: *ServerResponse _http_server.js:85:24
+     14    0.0%    0.0%  Handler: Buffer {2}
+     13    0.0%    0.0%  Stub: ToBooleanStub(Undefined,SpecObject)
+     13    0.0%    0.0%  Stub: RecordWriteStub {15}
+     13    0.0%    0.0%  Stub: CallFunctionStub_Args0
+     13    0.0%    0.0%  RegExp: ^Trailer$
+     13    0.0%    0.0%  LazyCompile: ~_flushOutput _http_outgoing.js:659:63
+     13    0.0%    0.0%  LazyCompile: Accepts.encoding.Accepts.encodings /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/index.js:84:40
+     13    0.0%    0.0%  LazyCompile: *substring native string.js:483:25
+     13    0.0%    0.0%  LazyCompile: *decodeSymbol /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:134:23
+     13    0.0%    0.0%  LazyCompile: *String native string.js:24:27
+     13    0.0%    0.0%  LazyCompile: *Duplex _stream_duplex.js:23:16
+     13    0.0%    0.0%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:429:32
+     13    0.0%    0.0%  KeyedStoreIC:  {1143}
+     13    0.0%    0.0%  Handler: emit {5}
+     13    0.0%    0.0%  Handler: Error
+     13    0.0%    0.0%  Handler: Buffer {1}
+     12    0.0%    0.0%  Stub: StoreTransitionStub {1}
+     12    0.0%    0.0%  Stub: CallFunctionStub_Args0 {1}
+     12    0.0%    0.0%  LazyCompile: ~_hasBinary /var/app/current/node_modules/socket.io/node_modules/has-binary/index.js:25:22
+     12    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/index.js:20:49
+     12    0.0%    0.0%  LazyCompile: *resume_ _stream_readable.js:723:17
+     12    0.0%    0.0%  LazyCompile: *hasOwnProperty native v8natives.js:108:30
+     12    0.0%    0.0%  KeyedStoreIC:  {1102}
+     12    0.0%    0.0%  Handler: An IC handler from the snapshot {28}
+     12    0.0%    0.0%  Builtin: JSConstructStubApi
+     11    0.0%    0.0%  Stub: CompareICStub {3}
+     11    0.0%    0.0%  Stub: CompareICStub {2}
+     11    0.0%    0.0%  Stub: CompareICStub {12}
+     11    0.0%    0.0%  Stub: CompareICStub {10}
+     11    0.0%    0.0%  RegExp: ^\\s*(\\S+?)\\s*(?:;(.*))?$
+     11    0.0%    0.0%  RegExp: ^Content-Length$
+     11    0.0%    0.0%  LazyCompile: ~callback /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:201:26
+     11    0.0%    0.0%  LazyCompile: ClientRequest _http_client.js:18:23
+     11    0.0%    0.0%  LazyCompile: *unrefTimeout timers.js:531:22
+     11    0.0%    0.0%  LazyCompile: *toString native v8natives.js:1026:26
+     11    0.0%    0.0%  LazyCompile: *parseAcceptEncoding /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:4:29
+     11    0.0%    0.0%  LazyCompile: *exports.decodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:423:42
+     11    0.0%    0.0%  LazyCompile: *Readable _stream_readable.js:81:18
+     11    0.0%    0.0%  LazyCompile: *NonNumberToNumber native runtime.js:553:27
+     11    0.0%    0.0%  LazyCompile: *InnerArrayIndexOf native array.js:1031:27
+     11    0.0%    0.0%  Handler: emit
+     11    0.0%    0.0%  Handler: Uint8Array
+     11    0.0%    0.0%  Handler: An IC handler from the snapshot {17}
+     10    0.0%    0.0%  Stub: RecordWriteStub {7}
+     10    0.0%    0.0%  Stub: RecordWriteStub {10}
+     10    0.0%    0.0%  Stub: LoadFieldStub {2}
+     10    0.0%    0.0%  Stub: BinaryOpICStub {1}
+     10    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:457:27
+     10    0.0%    0.0%  LazyCompile: *specify /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:79:17
+     10    0.0%    0.0%  LazyCompile: *Zlib._transform zlib.js:476:37
+     10    0.0%    0.0%  LazyCompile: *Transform.push _stream_transform.js:126:36
+     10    0.0%    0.0%  LazyCompile: *Boolean native v8natives.js:987:28
+     10    0.0%    0.0%  Handler: process {1}
+     10    0.0%    0.0%  Handler: indexOf
+     10    0.0%    0.0%  Handler: Content-Encoding {1}
+     10    0.0%    0.0%  Handler: Buffer
+     10    0.0%    0.0%  Handler: ArrayBuffer
+     10    0.0%    0.0%  Handler: Array
+     10    0.0%    0.0%  Handler: An IC handler from the snapshot {25}
+     10    0.0%    0.0%  Handler: /#FVUvwMfvx6c2x_X5AAH6
+      9    0.0%    0.0%  Stub: ToBooleanStub(Undefined)
+      9    0.0%    0.0%  Stub: RecordWriteStub {17}
+      9    0.0%    0.0%  LazyCompile: ~<anonymous> _stream_transform.js:116:34
+      9    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:344:24
+      9    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:340:25
+      9    0.0%    0.0%  LazyCompile: decodeString /var/app/current/node_modules/socket.io/node_modules/socket.io-parser/index.js:274:22
+      9    0.0%    0.0%  LazyCompile: IN native runtime.js:352:15
+      9    0.0%    0.0%  LazyCompile: <anonymous> /var/app/current/index.js:99:41
+      9    0.0%    0.0%  LazyCompile: *Writable _stream_writable.js:137:18
+      9    0.0%    0.0%  LazyCompile: *Console.log console.js:38:33
+      9    0.0%    0.0%  LazyCompile: *Accepts /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/index.js:8:17
+      9    0.0%    0.0%  LazyCompile: *<anonymous> node.js:645:48
+      9    0.0%    0.0%  Handler: slice {1}
+      9    0.0%    0.0%  Handler: read
+      9    0.0%    0.0%  Handler: headers {4}
+      9    0.0%    0.0%  Handler: apply {1}
+      9    0.0%    0.0%  Handler: _unrefTimer
+      9    0.0%    0.0%  Handler: _headerNames
+      9    0.0%    0.0%  Handler: $toString {1}
+      8    0.0%    0.0%  Stub: ToNumberStub
+      8    0.0%    0.0%  Stub: ToBooleanStub(Undefined,Bool)
+      8    0.0%    0.0%  Stub: StoreTransitionStub {3}
+      8    0.0%    0.0%  Stub: StoreFieldStub {4}
+      8    0.0%    0.0%  Stub: RecordWriteStub {3}
+      8    0.0%    0.0%  Stub: RecordWriteStub {16}
+      8    0.0%    0.0%  Stub: LoadFieldStub {8}
+      8    0.0%    0.0%  Stub: LoadFastElementStub
+      8    0.0%    0.0%  Stub: InternalArraySingleArgumentConstructorStub
+      8    0.0%    0.0%  Stub: CompareICStub {9}
+      8    0.0%    0.0%  Stub: CompareICStub
+      8    0.0%    0.0%  Stub: CallFunctionStub
+      8    0.0%    0.0%  Stub: BinaryOpICStub {6}
+      8    0.0%    0.0%  LazyCompile: ~finish _http_outgoing.js:557:18
+      8    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:8:57
+      8    0.0%    0.0%  LazyCompile: *once events.js:249:44
+      8    0.0%    0.0%  LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      8    0.0%    0.0%  LazyCompile: *charAt native string.js:45:24
+      8    0.0%    0.0%  LazyCompile: *XHR.headers /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:59:33
+      8    0.0%    0.0%  Handler: undefined
+      8    0.0%    0.0%  Handler: Number
+      8    0.0%    0.0%  Handler: An IC handler from the snapshot {27}
+      7    0.0%    0.0%  Stub: ToBooleanStub(Undefined,String)
+      7    0.0%    0.0%  Stub: ToBooleanStub(String)
+      7    0.0%    0.0%  Stub: StoreTransitionStub {12}
+      7    0.0%    0.0%  Stub: RecordWriteStub {1}
+      7    0.0%    0.0%  Stub: LoadFieldStub {5}
+      7    0.0%    0.0%  Stub: LoadFieldStub {1}
+      7    0.0%    0.0%  RegExp: ^Transfer-Encoding$
+      7    0.0%    0.0%  RegExp: ^Expect$
+      7    0.0%    0.0%  LazyCompile: ~slowToString buffer.js:324:22
+      7    0.0%    0.0%  LazyCompile: ~emit events.js:117:44
+      7    0.0%    0.0%  LazyCompile: ~QuickSort native array.js:710:26
+      7    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:409:35
+      7    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:306:41
+      7    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/index.js:134:42
+      7    0.0%    0.0%  LazyCompile: fs.writeFile fs.js:1118:24
+      7    0.0%    0.0%  LazyCompile: *trim native string.js:549:22
+      7    0.0%    0.0%  LazyCompile: *preferredEncodings /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:93:28
+      7    0.0%    0.0%  LazyCompile: *Polling.onPollRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:79:44
+      7    0.0%    0.0%  LazyCompile: *Polling.onData /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:198:37
+      7    0.0%    0.0%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:68:32
+      7    0.0%    0.0%  Handler: toString {NaN}
+      7    0.0%    0.0%  Handler: handle
+      7    0.0%    0.0%  Handler: connection
+      7    0.0%    0.0%  Handler: _contentLength {1}
+      7    0.0%    0.0%  Handler: An IC handler from the snapshot {46}
+      7    0.0%    0.0%  Handler: An IC handler from the snapshot {43}
+      7    0.0%    0.0%  Handler: An IC handler from the snapshot {40}
+      7    0.0%    0.0%  Handler: An IC handler from the snapshot {32}
+      7    0.0%    0.0%  Handler: An IC handler from the snapshot {21}
+      7    0.0%    0.0%  Handler: An IC handler from the snapshot {18}
+      7    0.0%    0.0%  Handler: $toObject
+      7    0.0%    0.0%  Handler: $toNumber {1}
+      6    0.0%    0.0%  Stub: StoreTransitionStub {8}
+      6    0.0%    0.0%  Stub: StoreTransitionStub {6}
+      6    0.0%    0.0%  Stub: StoreFieldStub {2}
+      6    0.0%    0.0%  Stub: RecordWriteStub {12}
+      6    0.0%    0.0%  Stub: NumberToStringStub
+      6    0.0%    0.0%  Stub: LoadFieldStub {15}
+      6    0.0%    0.0%  Stub: LoadConstantStub {4}
+      6    0.0%    0.0%  Stub: CompareICStub {5}
+      6    0.0%    0.0%  Stub: CallFunctionStub_Args5
+      6    0.0%    0.0%  StorePolymorphicIC: _idleNext {3}
+      6    0.0%    0.0%  RegExp: ^(\\/?|)([\\s\\S]*?)((?:\\.{1\,2}|[^\\/]+?|)(\\.[^.\\/]*|))(?:[\\/]*)$
+      6    0.0%    0.0%  LazyCompile: ~Namespace.emit /var/app/current/node_modules/socket.io/lib/namespace.js:204:36
+      6    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:100:21
+      6    0.0%    0.0%  LazyCompile: Server.checkRequest /var/app/current/node_modules/socket.io/lib/index.js:60:41
+      6    0.0%    0.0%  LazyCompile: *unrefTimer net.js:185:51
+      6    0.0%    0.0%  LazyCompile: *keys native v8natives.js:174:20
+      6    0.0%    0.0%  LazyCompile: *Zlib._flush zlib.js:428:33
+      6    0.0%    0.0%  LazyCompile: *Socket.join /var/app/current/node_modules/socket.io/lib/socket.js:222:33
+      6    0.0%    0.0%  LazyCompile: *ServerResponse.detachSocket _http_server.js:144:49
+      6    0.0%    0.0%  LazyCompile: *Polling.send /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:235:35
+      6    0.0%    0.0%  LazyCompile: *OutgoingMessage.write _http_outgoing.js:428:43
+      6    0.0%    0.0%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:340:25
+      6    0.0%    0.0%  Handler: writev
+      6    0.0%    0.0%  Handler: statusMessage
+      6    0.0%    0.0%  Handler: some {1}
+      6    0.0%    0.0%  Handler: shift
+      6    0.0%    0.0%  Handler: removeListener {4}
+      6    0.0%    0.0%  Handler: push
+      6    0.0%    0.0%  Handler: packet
+      6    0.0%    0.0%  Handler: detachSocket
+      6    0.0%    0.0%  Handler: Array {2}
+      6    0.0%    0.0%  Handler: An IC handler from the snapshot {37}
+      6    0.0%    0.0%  Handler: $toUint32
+      5    0.0%    0.0%  Stub: StoreFieldStub {1}
+      5    0.0%    0.0%  Stub: RecordWriteStub {4}
+      5    0.0%    0.0%  Stub: RecordWriteStub {11}
+      5    0.0%    0.0%  Stub: LoadFieldStub {4}
+      5    0.0%    0.0%  Stub: LoadFieldStub {3}
+      5    0.0%    0.0%  Stub: LoadFieldStub
+      5    0.0%    0.0%  Stub: LoadConstantStub {3}
+      5    0.0%    0.0%  Stub: FastNewContextStub
+      5    0.0%    0.0%  Stub: CompareICStub {19}
+      5    0.0%    0.0%  Stub: CompareICStub {16}
+      5    0.0%    0.0%  Stub: CompareICStub {11}
+      5    0.0%    0.0%  StorePolymorphicIC: read {3}
+      5    0.0%    0.0%  StorePolymorphicIC: _idleNext {5}
+      5    0.0%    0.0%  LazyCompile: ~onData /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:154:19
+      5    0.0%    0.0%  LazyCompile: ~cleanup /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:100:20
+      5    0.0%    0.0%  LazyCompile: ~byteLength buffer.js:248:20
+      5    0.0%    0.0%  LazyCompile: ~Agent.createSocket _http_agent.js:155:40
+      5    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:98:23
+      5    0.0%    0.0%  LazyCompile: <anonymous> /var/app/current/index.js:15:27
+      5    0.0%    0.0%  LazyCompile: *slice buffer.js:604:40
+      5    0.0%    0.0%  LazyCompile: *map native array.js:1022:18
+      5    0.0%    0.0%  LazyCompile: *exports.encodePayload /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:196:34
+      5    0.0%    0.0%  LazyCompile: *exports.createGzip zlib.js:91:30
+      5    0.0%    0.0%  LazyCompile: *endReadableNT _stream_readable.js:908:23
+      5    0.0%    0.0%  LazyCompile: *decodeURIComponent native uri.js:245:28
+      5    0.0%    0.0%  LazyCompile: *createWriteReq net.js:703:24
+      5    0.0%    0.0%  LazyCompile: *IncomingMessage.read _http_incoming.js:69:42
+      5    0.0%    0.0%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:8:57
+      5    0.0%    0.0%  Handler: write {3}
+      5    0.0%    0.0%  Handler: write {1}
+      5    0.0%    0.0%  Handler: useChunkedEncodingByDefault
+      5    0.0%    0.0%  Handler: statusCode
+      5    0.0%    0.0%  Handler: count
+      5    0.0%    0.0%  Handler: _handle
+      5    0.0%    0.0%  Handler: An IC handler from the snapshot {39}
+      5    0.0%    0.0%  Handler: An IC handler from the snapshot {36}
+      5    0.0%    0.0%  Handler: An IC handler from the snapshot {26}
+      5    0.0%    0.0%  Handler: An IC handler from the snapshot {15}
+      4    0.0%    0.0%  Stub: ToBooleanStub(Undefined,Null)
+      4    0.0%    0.0%  Stub: ToBooleanStub(Null,SpecObject)
+      4    0.0%    0.0%  Stub: StoreTransitionStub {9}
+      4    0.0%    0.0%  Stub: StoreFieldStub {3}
+      4    0.0%    0.0%  Stub: RecordWriteStub {9}
+      4    0.0%    0.0%  Stub: RecordWriteStub {33}
+      4    0.0%    0.0%  Stub: RecordWriteStub {32}
+      4    0.0%    0.0%  Stub: LoadFieldStub {7}
+      4    0.0%    0.0%  Stub: LoadConstantStub {7}
+      4    0.0%    0.0%  Stub: LoadConstantStub {5}
+      4    0.0%    0.0%  Stub: GrowArrayElementsStub {2}
+      4    0.0%    0.0%  Stub: FastNewContextStub {4}
+      4    0.0%    0.0%  Stub: CompareNilICStub
+      4    0.0%    0.0%  Stub: CompareICStub {4}
+      4    0.0%    0.0%  Stub: CompareICStub {15}
+      4    0.0%    0.0%  Stub: CompareICStub {14}
+      4    0.0%    0.0%  Stub: CompareICStub {13}
+      4    0.0%    0.0%  Stub: CallFunctionStub_Args4
+      4    0.0%    0.0%  Stub: CallApiAccessorStub {3}
+      4    0.0%    0.0%  StorePolymorphicIC: _idlePrev {5}
+      4    0.0%    0.0%  LazyCompile: ~updateOutgoingData _http_server.js:271:30
+      4    0.0%    0.0%  LazyCompile: ~Zlib._processChunk zlib.js:506:40
+      4    0.0%    0.0%  LazyCompile: ~TransformState.afterTransform _stream_transform.js:53:33
+      4    0.0%    0.0%  LazyCompile: ~InsertionSort native array.js:683:30
+      4    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:68:32
+      4    0.0%    0.0%  LazyCompile: NativeModule.require node.js:885:34
+      4    0.0%    0.0%  LazyCompile: *forEach native array.js:943:22
+      4    0.0%    0.0%  LazyCompile: *afterWrite net.js:757:20
+      4    0.0%    0.0%  LazyCompile: *ToNumber native runtime.js:542:18
+      4    0.0%    0.0%  LazyCompile: *ArraySlice native array.js:550:20
+      4    0.0%    0.0%  LazyCompile: *ArrayBuffer native arraybuffer.js:13:32
+      4    0.0%    0.0%  Handler: parseInt {1}
+      4    0.0%    0.0%  Handler: onRequest {1}
+      4    0.0%    0.0%  Handler: domain {22}
+      4    0.0%    0.0%  Handler: decodeURIComponent
+      4    0.0%    0.0%  Handler: _offset
+      4    0.0%    0.0%  Handler: _dump
+      4    0.0%    0.0%  Handler: Content-Length
+      4    0.0%    0.0%  Handler: An IC handler from the snapshot {44}
+      4    0.0%    0.0%  Handler: An IC handler from the snapshot {34}
+      4    0.0%    0.0%  Handler: An IC handler from the snapshot {2}
+      4    0.0%    0.0%  Handler: An IC handler from the snapshot {20}
+      4    0.0%    0.0%  Handler: An IC handler from the snapshot {10}
+      4    0.0%    0.0%  Handler: Access-Control-Allow-Origin {1}
+      3    0.0%    0.0%  Stub: ToBooleanStub(None)
+      3    0.0%    0.0%  Stub: StoreTransitionStub {15}
+      3    0.0%    0.0%  Stub: StoreFieldStub {8}
+      3    0.0%    0.0%  Stub: StoreFieldStub {11}
+      3    0.0%    0.0%  Stub: RecordWriteStub {38}
+      3    0.0%    0.0%  Stub: RecordWriteStub {30}
+      3    0.0%    0.0%  Stub: RecordWriteStub {25}
+      3    0.0%    0.0%  Stub: RecordWriteStub {23}
+      3    0.0%    0.0%  Stub: RecordWriteStub {21}
+      3    0.0%    0.0%  Stub: LoadFieldStub {11}
+      3    0.0%    0.0%  Stub: LoadFieldStub {10}
+      3    0.0%    0.0%  Stub: CompareICStub {24}
+      3    0.0%    0.0%  Stub: CompareICStub {20}
+      3    0.0%    0.0%  Stub: BinaryOpICStub {5}
+      3    0.0%    0.0%  Stub: ArrayConstructorStub
+      3    0.0%    0.0%  StorePolymorphicIC: Set-Cookie {3}
+      3    0.0%    0.0%  LazyCompile: ~writeOrBuffer _stream_writable.js:262:23
+      3    0.0%    0.0%  LazyCompile: ~stringify native json.js:155:23
+      3    0.0%    0.0%  LazyCompile: ~readableAddChunk _stream_readable.js:124:26
+      3    0.0%    0.0%  LazyCompile: ~onread net.js:509:16
+      3    0.0%    0.0%  LazyCompile: ~once events.js:249:44
+      3    0.0%    0.0%  LazyCompile: ~exports._unrefActive timers.js:599:32
+      3    0.0%    0.0%  LazyCompile: ~StringDecoder.write string_decoder.js:64:41
+      3    0.0%    0.0%  LazyCompile: ~Socket.sendPacket /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:366:40
+      3    0.0%    0.0%  LazyCompile: ~Socket._destroy net.js:444:37
+      3    0.0%    0.0%  LazyCompile: ~Socket net.js:115:16
+      3    0.0%    0.0%  LazyCompile: ~Server.verify /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:133:35
+      3    0.0%    0.0%  LazyCompile: ~RegExpExecNoTests native regexp.js:59:27
+      3    0.0%    0.0%  LazyCompile: ~QueryString.parse.QueryString.decode querystring.js:207:50
+      3    0.0%    0.0%  LazyCompile: ~InnerArrayIndexOf native array.js:1031:27
+      3    0.0%    0.0%  LazyCompile: ~Emitter.emit /var/app/current/node_modules/socket.io/node_modules/socket.io-parser/node_modules/component-emitter/index.js:126:34
+      3    0.0%    0.0%  LazyCompile: ~DoConstructRegExp native regexp.js:17:27
+      3    0.0%    0.0%  LazyCompile: ~Buffer.concat buffer.js:208:25
+      3    0.0%    0.0%  LazyCompile: ~<anonymous> punycode.js:473:35
+      3    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:15:41
+      3    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:104:20
+      3    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:318:31
+      3    0.0%    0.0%  LazyCompile: Server.handshake /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:262:38
+      3    0.0%    0.0%  LazyCompile: Client.ondata /var/app/current/node_modules/socket.io/lib/client.js:172:35
+      3    0.0%    0.0%  LazyCompile: *tickOnSocket _http_client.js:472:22
+      3    0.0%    0.0%  LazyCompile: *sort native array.js:885:19
+      3    0.0%    0.0%  LazyCompile: *socketOnData _http_client.js:313:22
+      3    0.0%    0.0%  LazyCompile: *onend _stream_duplex.js:44:15
+      3    0.0%    0.0%  LazyCompile: *onconnection net.js:1400:22
+      3    0.0%    0.0%  LazyCompile: *ok assert.js:109:12
+      3    0.0%    0.0%  LazyCompile: *lookupAndConnect net.js:911:26
+      3    0.0%    0.0%  LazyCompile: *isBuffer buffer.js:162:36
+      3    0.0%    0.0%  LazyCompile: *emitReadable_ _stream_readable.js:417:23
+      3    0.0%    0.0%  LazyCompile: *Writable.write _stream_writable.js:193:36
+      3    0.0%    0.0%  LazyCompile: *Transform _stream_transform.js:89:19
+      3    0.0%    0.0%  LazyCompile: *ToPrimitive native runtime.js:528:21
+      3    0.0%    0.0%  LazyCompile: *Readable.resume _stream_readable.js:706:37
+      3    0.0%    0.0%  LazyCompile: *Polling.headers /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:395:38
+      3    0.0%    0.0%  LazyCompile: *Number native v8natives.js:1018:27
+      3    0.0%    0.0%  LazyCompile: *Negotiator.(anonymous function) /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/negotiator.js:25:43
+      3    0.0%    0.0%  LazyCompile: *InnerArraySort native array.js:670:24
+      3    0.0%    0.0%  LazyCompile: *InnerArrayForEach native array.js:924:27
+      3    0.0%    0.0%  LazyCompile: *IncomingMessage._dump _http_incoming.js:169:43
+      3    0.0%    0.0%  LazyCompile: *Client.ondecoded /var/app/current/node_modules/socket.io/lib/client.js:187:38
+      3    0.0%    0.0%  LazyCompile: *Buffer.write buffer.js:516:34
+      3    0.0%    0.0%  LazyCompile: *Buffer.toString buffer.js:369:37
+      3    0.0%    0.0%  LazyCompile: *Agent.addRequest _http_agent.js:108:38
+      3    0.0%    0.0%  LazyCompile: *<anonymous> node.js:630:48
+      3    0.0%    0.0%  Handler: splice
+      3    0.0%    0.0%  Handler: read {2}
+      3    0.0%    0.0%  Handler: push {2}
+      3    0.0%    0.0%  Handler: onData
+      3    0.0%    0.0%  Handler: nsp
+      3    0.0%    0.0%  Handler: length {2}
+      3    0.0%    0.0%  Handler: headers {2}
+      3    0.0%    0.0%  Handler: _strategy
+      3    0.0%    0.0%  Handler: Set-Cookie {5}
+      3    0.0%    0.0%  Handler: Set-Cookie {2}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {48}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {47}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {45}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {42}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {41}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {35}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {23}
+      3    0.0%    0.0%  Handler: An IC handler from the snapshot {16}
+      2    0.0%    0.0%  Stub: ToBooleanStub(Undefined,Null,SpecObject)
+      2    0.0%    0.0%  Stub: ToBooleanStub(SpecObject,String,HeapNumber)
+      2    0.0%    0.0%  Stub: StoreTransitionStub {14}
+      2    0.0%    0.0%  Stub: StoreTransitionStub {10}
+      2    0.0%    0.0%  Stub: StoreFieldStub {9}
+      2    0.0%    0.0%  Stub: StoreFieldStub {5}
+      2    0.0%    0.0%  Stub: StoreFieldStub {10}
+      2    0.0%    0.0%  Stub: RecordWriteStub {36}
+      2    0.0%    0.0%  Stub: RecordWriteStub {28}
+      2    0.0%    0.0%  Stub: RecordWriteStub {26}
+      2    0.0%    0.0%  Stub: RecordWriteStub {14}
+      2    0.0%    0.0%  Stub: LoadICStub {2}
+      2    0.0%    0.0%  Stub: LoadFieldStub {18}
+      2    0.0%    0.0%  Stub: LoadFieldStub {14}
+      2    0.0%    0.0%  Stub: LoadFieldStub {13}
+      2    0.0%    0.0%  Stub: LoadFieldStub {12}
+      2    0.0%    0.0%  Stub: InternalArrayConstructorStub
+      2    0.0%    0.0%  Stub: FastNewContextStub {5}
+      2    0.0%    0.0%  Stub: CompareICStub {8}
+      2    0.0%    0.0%  Stub: CompareICStub {17}
+      2    0.0%    0.0%  Stub: BinaryOpICWithAllocationSiteStub(ADD_CreateAllocationMementos:String*String->String)
+      2    0.0%    0.0%  Stub: BinaryOpICWithAllocationSiteStub(ADD_CreateAllocationMementos:String*Smi->String)
+      2    0.0%    0.0%  Stub: BinaryOpICWithAllocationSiteStub(ADD_CreateAllocationMementos:String*Generic->String)
+      2    0.0%    0.0%  Stub: BinaryOpICWithAllocationSiteStub(ADD_CreateAllocationMementos:Smi*String->String)
+      2    0.0%    0.0%  Stub: BinaryOpICStub {8}
+      2    0.0%    0.0%  Stub: BinaryOpICStub {2}
+      2    0.0%    0.0%  Stub: ArgumentsAccessStub {1}
+      2    0.0%    0.0%  Stub: AllocateHeapNumberStub
+      2    0.0%    0.0%  StorePolymorphicIC: _idlePrev {18}
+      2    0.0%    0.0%  StorePolymorphicIC: _idlePrev {16}
+      2    0.0%    0.0%  StorePolymorphicIC: _idlePrev {12}
+      2    0.0%    0.0%  StorePolymorphicIC: _idlePrev {11}
+      2    0.0%    0.0%  StorePolymorphicIC: _bytesDispatched
+      2    0.0%    0.0%  StorePolymorphicIC: Access-Control-Allow-Origin {4}
+      2    0.0%    0.0%  RegExp: ^([a-z0-9.+-]+:)
+      2    0.0%    0.0%  RegExp: :[0-9]*$
+      2    0.0%    0.0%  LazyCompile: ~wrapper fs.js:617:19
+      2    0.0%    0.0%  LazyCompile: ~trim native string.js:549:22
+      2    0.0%    0.0%  LazyCompile: ~stringToBuffer /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:337:24
+      2    0.0%    0.0%  LazyCompile: ~responseOnEnd _http_client.js:442:23
+      2    0.0%    0.0%  LazyCompile: ~parseAcceptEncoding /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:4:29
+      2    0.0%    0.0%  LazyCompile: ~exports.setTimeout timers.js:178:30
+      2    0.0%    0.0%  LazyCompile: ~exports.enroll timers.js:150:26
+      2    0.0%    0.0%  LazyCompile: ~exports.decodePayload /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:253:34
+      2    0.0%    0.0%  LazyCompile: ~exec native regexp.js:85:22
+      2    0.0%    0.0%  LazyCompile: ~asyncCallback dns.js:61:32
+      2    0.0%    0.0%  LazyCompile: ~append _linklist.js:44:16
+      2    0.0%    0.0%  LazyCompile: ~Url.format url.js:365:32
+      2    0.0%    0.0%  LazyCompile: ~Transform _stream_transform.js:89:19
+      2    0.0%    0.0%  LazyCompile: ~ToObject native runtime.js:581:18
+      2    0.0%    0.0%  LazyCompile: ~StringReplaceGlobalRegExpWithFunction native string.js:291:47
+      2    0.0%    0.0%  LazyCompile: ~String native string.js:24:27
+      2    0.0%    0.0%  LazyCompile: ~Socket.connect net.js:855:36
+      2    0.0%    0.0%  LazyCompile: ~ReadableState _stream_readable.js:15:23
+      2    0.0%    0.0%  LazyCompile: ~Polling.onDataRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:124:44
+      2    0.0%    0.0%  LazyCompile: ~Base64Id.getRandomBytes /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/base64id/lib/base64id.js:23:45
+      2    0.0%    0.0%  LazyCompile: ~Accepts.encoding.Accepts.encodings /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/index.js:84:40
+      2    0.0%    0.0%  LazyCompile: ~<anonymous> net.js:395:26
+      2    0.0%    0.0%  LazyCompile: ~<anonymous> fs.js:81:18
+      2    0.0%    0.0%  LazyCompile: ~<anonymous> _stream_transform.js:118:27
+      2    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:157:31
+      2    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/lib/namespace.js:157:28
+      2    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/lib/client.js:75:38
+      2    0.0%    0.0%  LazyCompile: listOnTimeout timers.js:56:23
+      2    0.0%    0.0%  LazyCompile: Join native array.js:102:14
+      2    0.0%    0.0%  LazyCompile: *stringToFlags fs.js:467:23
+      2    0.0%    0.0%  LazyCompile: *proxy /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/after/index.js:10:19
+      2    0.0%    0.0%  LazyCompile: *onParserExecute _http_server.js:370:27
+      2    0.0%    0.0%  LazyCompile: *nop _stream_writable.js:17:13
+      2    0.0%    0.0%  LazyCompile: *maybeReadMore_ _stream_readable.js:437:24
+      2    0.0%    0.0%  LazyCompile: *getPrototypeOf native v8natives.js:650:30
+      2    0.0%    0.0%  LazyCompile: *exports.StringDecoder string_decoder.js:21:55
+      2    0.0%    0.0%  LazyCompile: *done _stream_transform.js:176:14
+      2    0.0%    0.0%  LazyCompile: *disabled /var/app/current/node_modules/socket.io/node_modules/debug/debug.js:65:20
+      2    0.0%    0.0%  LazyCompile: *connectionListener _http_server.js:265:28
+      2    0.0%    0.0%  LazyCompile: *afterTransform _stream_transform.js:64:24
+      2    0.0%    0.0%  LazyCompile: *afterConnect net.js:1025:22
+      2    0.0%    0.0%  LazyCompile: *after /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/after/index.js:3:15
+      2    0.0%    0.0%  LazyCompile: *Zlib.close zlib.js:456:32
+      2    0.0%    0.0%  LazyCompile: *UseSparseVariant native array.js:89:26
+      2    0.0%    0.0%  LazyCompile: *Socket.setTransport /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:143:42
+      2    0.0%    0.0%  LazyCompile: *Socket.read net.js:290:33
+      2    0.0%    0.0%  LazyCompile: *Socket net.js:115:16
+      2    0.0%    0.0%  LazyCompile: *DoRegExpExec native regexp.js:54:22
+      2    0.0%    0.0%  LazyCompile: *Decoder.add /var/app/current/node_modules/socket.io/node_modules/socket.io-parser/index.js:235:33
+      2    0.0%    0.0%  LazyCompile: *CorkedRequest _stream_writable.js:503:23
+      2    0.0%    0.0%  LazyCompile: *Agent.getName _http_agent.js:94:35
+      2    0.0%    0.0%  KeyedStoreIC:  {875}
+      2    0.0%    0.0%  Handler: trim
+      2    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {2}
+      2    0.0%    0.0%  Handler: statusMessage {1}
+      2    0.0%    0.0%  Handler: sensor_network
+      2    0.0%    0.0%  Handler: res
+      2    0.0%    0.0%  Handler: push {1}
+      2    0.0%    0.0%  Handler: onerror
+      2    0.0%    0.0%  Handler: onconnect
+      2    0.0%    0.0%  Handler: oncomplete {9}
+      2    0.0%    0.0%  Handler: oncomplete {10}
+      2    0.0%    0.0%  Handler: onPacket
+      2    0.0%    0.0%  Handler: on
+      2    0.0%    0.0%  Handler: nsp {1}
+      2    0.0%    0.0%  Handler: listener {1}
+      2    0.0%    0.0%  Handler: length {1}
+      2    0.0%    0.0%  Handler: indexOf {1}
+      2    0.0%    0.0%  Handler: headers {3}
+      2    0.0%    0.0%  Handler: handle {3}
+      2    0.0%    0.0%  Handler: end {4}
+      2    0.0%    0.0%  Handler: emit {6}
+      2    0.0%    0.0%  Handler: domain {31}
+      2    0.0%    0.0%  Handler: call {2}
+      2    0.0%    0.0%  Handler: apply
+      2    0.0%    0.0%  Handler: _storeHeader
+      2    0.0%    0.0%  Handler: _maxListeners {10}
+      2    0.0%    0.0%  Handler: _eventsCount {7}
+      2    0.0%    0.0%  Handler: _events {8}
+      2    0.0%    0.0%  Handler: _events {17}
+      2    0.0%    0.0%  Handler: _chunks {8}
+      2    0.0%    0.0%  Handler: _chunks {3}
+      2    0.0%    0.0%  Handler: JSON
+      2    0.0%    0.0%  Handler: Content-Encoding
+      2    0.0%    0.0%  Handler: Array {1}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {5}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {4}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {31}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {29}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {24}
+      2    0.0%    0.0%  Handler: An IC handler from the snapshot {11}
+      2    0.0%    0.0%  Handler: Access-Control-Allow-Origin {2}
+      2    0.0%    0.0%  Handler: /#CbwSxU6c3Z4h2hZfAAH9
+      2    0.0%    0.0%  Handler: /#0WR24b2yWq07hkEXAAAN
+      2    0.0%    0.0%  Handler: $toString
+      2    0.0%    0.0%  Builtin: InterruptCheck
+      1    0.0%    0.0%  Stub: StoreTransitionStub {7}
+      1    0.0%    0.0%  Stub: StoreTransitionStub {5}
+      1    0.0%    0.0%  Stub: StoreTransitionStub {2}
+      1    0.0%    0.0%  Stub: StoreTransitionStub {18}
+      1    0.0%    0.0%  Stub: StoreTransitionStub {17}
+      1    0.0%    0.0%  Stub: StoreTransitionStub {16}
+      1    0.0%    0.0%  Stub: StoreTransitionStub {13}
+      1    0.0%    0.0%  Stub: StoreTransitionStub
+      1    0.0%    0.0%  Stub: StoreGlobalStub
+      1    0.0%    0.0%  Stub: StoreFieldStub {7}
+      1    0.0%    0.0%  Stub: StoreFieldStub {13}
+      1    0.0%    0.0%  Stub: StoreFieldStub {12}
+      1    0.0%    0.0%  Stub: StoreFastElementStub {3}
+      1    0.0%    0.0%  Stub: RecordWriteStub {8}
+      1    0.0%    0.0%  Stub: RecordWriteStub {5}
+      1    0.0%    0.0%  Stub: RecordWriteStub {48}
+      1    0.0%    0.0%  Stub: RecordWriteStub {47}
+      1    0.0%    0.0%  Stub: RecordWriteStub {46}
+      1    0.0%    0.0%  Stub: RecordWriteStub {45}
+      1    0.0%    0.0%  Stub: RecordWriteStub {44}
+      1    0.0%    0.0%  Stub: RecordWriteStub {43}
+      1    0.0%    0.0%  Stub: RecordWriteStub {42}
+      1    0.0%    0.0%  Stub: RecordWriteStub {41}
+      1    0.0%    0.0%  Stub: RecordWriteStub {40}
+      1    0.0%    0.0%  Stub: RecordWriteStub {39}
+      1    0.0%    0.0%  Stub: RecordWriteStub {37}
+      1    0.0%    0.0%  Stub: RecordWriteStub {35}
+      1    0.0%    0.0%  Stub: RecordWriteStub {34}
+      1    0.0%    0.0%  Stub: RecordWriteStub {31}
+      1    0.0%    0.0%  Stub: RecordWriteStub {29}
+      1    0.0%    0.0%  Stub: RecordWriteStub {27}
+      1    0.0%    0.0%  Stub: RecordWriteStub {24}
+      1    0.0%    0.0%  Stub: RecordWriteStub {22}
+      1    0.0%    0.0%  Stub: RecordWriteStub {19}
+      1    0.0%    0.0%  Stub: RecordWriteStub {18}
+      1    0.0%    0.0%  Stub: LoadFieldStub {19}
+      1    0.0%    0.0%  Stub: LoadFieldStub {17}
+      1    0.0%    0.0%  Stub: LoadFieldStub {16}
+      1    0.0%    0.0%  Stub: KeyedLoadSloppyArgumentsStub
+      1    0.0%    0.0%  Stub: InternalArrayNoArgumentConstructorStub
+      1    0.0%    0.0%  Stub: FastNewContextStub {7}
+      1    0.0%    0.0%  Stub: FastNewContextStub {6}
+      1    0.0%    0.0%  Stub: FastNewClosureStub {2}
+      1    0.0%    0.0%  Stub: CompareNilICStub(NullValue)(Null,MonomorphicMap)
+      1    0.0%    0.0%  Stub: CompareICStub {6}
+      1    0.0%    0.0%  Stub: CompareICStub {23}
+      1    0.0%    0.0%  Stub: CompareICStub {22}
+      1    0.0%    0.0%  Stub: CallApiGetterStub
+      1    0.0%    0.0%  Stub: CallApiAccessorStub {5}
+      1    0.0%    0.0%  Stub: CallApiAccessorStub {4}
+      1    0.0%    0.0%  Stub: CallApiAccessorStub {2}
+      1    0.0%    0.0%  Stub: BinaryOpICStub(MUL:Generic*Smi->Number)
+      1    0.0%    0.0%  Stub: BinaryOpICStub {4}
+      1    0.0%    0.0%  Stub: BinaryOpICStub {3}
+      1    0.0%    0.0%  Stub: BinaryOpICStub
+      1    0.0%    0.0%  StorePolymorphicIC: socket
+      1    0.0%    0.0%  StorePolymorphicIC: res {2}
+      1    0.0%    0.0%  StorePolymorphicIC: req
+      1    0.0%    0.0%  StorePolymorphicIC: nsp {2}
+      1    0.0%    0.0%  StorePolymorphicIC: _pendingEncoding
+      1    0.0%    0.0%  StorePolymorphicIC: _pendingData {1}
+      1    0.0%    0.0%  StorePolymorphicIC: _idlePrev {19}
+      1    0.0%    0.0%  StorePolymorphicIC: _idlePrev
+      1    0.0%    0.0%  StorePolymorphicIC: _idleNext {2}
+      1    0.0%    0.0%  StorePolymorphicIC: _idleNext {1}
+      1    0.0%    0.0%  StorePolymorphicIC: _idleNext
+      1    0.0%    0.0%  StorePolymorphicIC: _eventsCount {3}
+      1    0.0%    0.0%  StorePolymorphicIC: _events {4}
+      1    0.0%    0.0%  StorePolymorphicIC: _events {3}
+      1    0.0%    0.0%  StorePolymorphicIC: _contentLength
+      1    0.0%    0.0%  StorePolymorphicIC: Set-Cookie {1}
+      1    0.0%    0.0%  StorePolymorphicIC: Content-Length {1}
+      1    0.0%    0.0%  RegExp: [^\\x20-\\x7E]
+      1    0.0%    0.0%  RegExp: [\\x2E\\u3002\\uFF0E\\uFF61]
+      1    0.0%    0.0%  RegExp: [?#]
+      1    0.0%    0.0%  RegExp: %[sdj%]
+      1    0.0%    0.0%  LazyCompile: ~valueOf native v8natives.js:105:23
+      1    0.0%    0.0%  LazyCompile: ~unrefTimeout timers.js:531:22
+      1    0.0%    0.0%  LazyCompile: ~spliceOne events.js:423:19
+      1    0.0%    0.0%  LazyCompile: ~socketOnEnd _http_server.js:419:23
+      1    0.0%    0.0%  LazyCompile: ~setPrototypeOf native v8natives.js:653:30
+      1    0.0%    0.0%  LazyCompile: ~sendErrorMessage /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:226:27
+      1    0.0%    0.0%  LazyCompile: ~reuse timers.js:122:15
+      1    0.0%    0.0%  LazyCompile: ~parserOnHeadersComplete _http_common.js:43:33
+      1    0.0%    0.0%  LazyCompile: ~parserOnBody _http_common.js:111:22
+      1    0.0%    0.0%  LazyCompile: ~parseInt native v8natives.js:37:24
+      1    0.0%    0.0%  LazyCompile: ~parseEncoding /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:42:23
+      1    0.0%    0.0%  LazyCompile: ~onconnection net.js:1400:22
+      1    0.0%    0.0%  LazyCompile: ~onSocketFinish net.js:196:24
+      1    0.0%    0.0%  LazyCompile: ~onSocket _http_client.js:534:26
+      1    0.0%    0.0%  LazyCompile: ~normalizeConnectArgs net.js:74:30
+      1    0.0%    0.0%  LazyCompile: ~nextTick node.js:478:22
+      1    0.0%    0.0%  LazyCompile: ~map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      1    0.0%    0.0%  LazyCompile: ~getPrototypeOf native v8natives.js:650:30
+      1    0.0%    0.0%  LazyCompile: ~fs.write fs.js:616:20
+      1    0.0%    0.0%  LazyCompile: ~fs.readSync fs.js:585:23
+      1    0.0%    0.0%  LazyCompile: ~fromCharCode native string.js:561:28
+      1    0.0%    0.0%  LazyCompile: ~freeParser _http_common.js:187:20
+      1    0.0%    0.0%  LazyCompile: ~fireErrorCallbacks net.js:449:30
+      1    0.0%    0.0%  LazyCompile: ~exports.unenroll timers.js:138:45
+      1    0.0%    0.0%  LazyCompile: ~exports.runInThisContext vm.js:52:36
+      1    0.0%    0.0%  LazyCompile: ~exports.format util.js:13:26
+      1    0.0%    0.0%  LazyCompile: ~exports.decodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:423:42
+      1    0.0%    0.0%  LazyCompile: ~exports.connect.exports.createConnection net.js:61:54
+      1    0.0%    0.0%  LazyCompile: ~exports.clearInterval timers.js:292:33
+      1    0.0%    0.0%  LazyCompile: ~exports.active timers.js:31:26
+      1    0.0%    0.0%  LazyCompile: ~encodeAsString /var/app/current/node_modules/socket.io/node_modules/socket.io-parser/index.js:147:24
+      1    0.0%    0.0%  LazyCompile: ~emitOne events.js:75:17
+      1    0.0%    0.0%  LazyCompile: ~emitNone events.js:65:18
+      1    0.0%    0.0%  LazyCompile: ~clearBuffer _stream_writable.js:369:21
+      1    0.0%    0.0%  LazyCompile: ~charAt native string.js:45:24
+      1    0.0%    0.0%  LazyCompile: ~callSocketMethod _http_client.js:526:28
+      1    0.0%    0.0%  LazyCompile: ~addListener events.js:191:58
+      1    0.0%    0.0%  LazyCompile: ~WritableState _stream_writable.js:26:23
+      1    0.0%    0.0%  LazyCompile: ~Url.parse url.js:88:31
+      1    0.0%    0.0%  LazyCompile: ~Uint8Array native typedarray.js:122:31
+      1    0.0%    0.0%  LazyCompile: ~TimeString native date.js:141:20
+      1    0.0%    0.0%  LazyCompile: ~Socket.onPacket /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:78:38
+      1    0.0%    0.0%  LazyCompile: ~Socket.onOpen /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:55:36
+      1    0.0%    0.0%  LazyCompile: ~Socket.emit /var/app/current/node_modules/socket.io/lib/socket.js:126:33
+      1    0.0%    0.0%  LazyCompile: ~Socket.clearTransport /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:267:44
+      1    0.0%    0.0%  LazyCompile: ~Socket /var/app/current/node_modules/socket.io/lib/socket.js:58:16
+      1    0.0%    0.0%  LazyCompile: ~Server.onconnection /var/app/current/node_modules/socket.io/lib/index.js:314:41
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage.write _http_outgoing.js:428:43
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage._storeHeader _http_outgoing.js:189:50
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage._send _http_outgoing.js:121:43
+      1    0.0%    0.0%  LazyCompile: ~OutgoingMessage _http_outgoing.js:47:25
+      1    0.0%    0.0%  LazyCompile: ~Module._resolveLookupPaths module.js:209:38
+      1    0.0%    0.0%  LazyCompile: ~Module._nodeModulePaths module.js:188:35
+      1    0.0%    0.0%  LazyCompile: ~Module._findPath module.js:128:28
+      1    0.0%    0.0%  LazyCompile: ~Module module.js:26:16
+      1    0.0%    0.0%  LazyCompile: ~InnerArrayFilter native array.js:891:26
+      1    0.0%    0.0%  LazyCompile: ~Encoder.encode /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser/index.js:127:36
+      1    0.0%    0.0%  LazyCompile: ~Emitter.off.Emitter.removeListener.Emitter.removeAllListeners.Emitter.removeEventListener /var/app/current/node_modules/socket.io/node_modules/socket.io-parser/node_modules/component-emitter/index.js:87:49
+      1    0.0%    0.0%  LazyCompile: ~DefineObjectProperty native v8natives.js:461:30
+      1    0.0%    0.0%  LazyCompile: ~Date native date.js:71:25
+      1    0.0%    0.0%  LazyCompile: ~Buffer.write buffer.js:516:34
+      1    0.0%    0.0%  LazyCompile: ~Buffer buffer.js:50:16
+      1    0.0%    0.0%  LazyCompile: ~Agent.removeSocket _http_agent.js:210:40
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> net.js:637:34
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> net.js:475:32
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> fs.js:1132:45
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> fs.js:1098:58
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> _http_client.js:155:44
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:96:33
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/mime-types/index.js:14:25
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/lib/namespace.js:158:30
+      1    0.0%    0.0%  LazyCompile: ~<anonymous> /var/app/current/index.js:94:45
+      1    0.0%    0.0%  LazyCompile: _runOnTimeout timers.js:521:23
+      1    0.0%    0.0%  LazyCompile: Module._load module.js:271:24
+      1    0.0%    0.0%  LazyCompile: *writeOrBuffer _stream_writable.js:262:23
+      1    0.0%    0.0%  LazyCompile: *writeAll fs.js:1094:18
+      1    0.0%    0.0%  LazyCompile: *utcDate _http_outgoing.js:33:17
+      1    0.0%    0.0%  LazyCompile: *urlParse url.js:80:18
+      1    0.0%    0.0%  LazyCompile: *updateOutgoingData _http_server.js:271:30
+      1    0.0%    0.0%  LazyCompile: *sendErrorMessage /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:226:27
+      1    0.0%    0.0%  LazyCompile: *rethrow fs.js:44:17
+      1    0.0%    0.0%  LazyCompile: *responseOnEnd _http_client.js:442:23
+      1    0.0%    0.0%  LazyCompile: *peek _linklist.js:11:14
+      1    0.0%    0.0%  LazyCompile: *onread net.js:509:16
+      1    0.0%    0.0%  LazyCompile: *normalizeConnectArgs net.js:74:30
+      1    0.0%    0.0%  LazyCompile: *normalizeArray path.js:17:24
+      1    0.0%    0.0%  LazyCompile: *lookup dns.js:107:33
+      1    0.0%    0.0%  LazyCompile: *isLegalPort internal/net.js:7:21
+      1    0.0%    0.0%  LazyCompile: *isFinite native v8natives.js:33:24
+      1    0.0%    0.0%  LazyCompile: *getEncodingPriority /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:67:29
+      1    0.0%    0.0%  LazyCompile: *fs.appendFile fs.js:1177:25
+      1    0.0%    0.0%  LazyCompile: *fromList _stream_readable.js:828:18
+      1    0.0%    0.0%  LazyCompile: *freeParser _http_common.js:187:20
+      1    0.0%    0.0%  LazyCompile: *filter native array.js:915:21
+      1    0.0%    0.0%  LazyCompile: *exports.unenroll timers.js:138:45
+      1    0.0%    0.0%  LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+      1    0.0%    0.0%  LazyCompile: *encodeAsString /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser/index.js:147:24
+      1    0.0%    0.0%  LazyCompile: *emitNone events.js:65:18
+      1    0.0%    0.0%  LazyCompile: *emitCloseNT zlib.js:472:21
+      1    0.0%    0.0%  LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1    0.0%    0.0%  LazyCompile: *disabled /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser/node_modules/debug/lib/debug.js:94:20
+      1    0.0%    0.0%  LazyCompile: *debugs.(anonymous function) util.js:72:29
+      1    0.0%    0.0%  LazyCompile: *WritableState.onwrite _stream_writable.js:88:26
+      1    0.0%    0.0%  LazyCompile: *Writable.uncork _stream_writable.js:226:37
+      1    0.0%    0.0%  LazyCompile: *TwoDigitString native date.js:120:24
+      1    0.0%    0.0%  LazyCompile: *TransformState _stream_transform.js:52:24
+      1    0.0%    0.0%  LazyCompile: *ToUint32 native runtime.js:601:18
+      1    0.0%    0.0%  LazyCompile: *Timeout timers.js:300:25
+      1    0.0%    0.0%  LazyCompile: *Socket.write net.js:623:34
+      1    0.0%    0.0%  LazyCompile: *Socket.setupSendCallback /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:314:47
+      1    0.0%    0.0%  LazyCompile: *Socket.end net.js:407:32
+      1    0.0%    0.0%  LazyCompile: *Socket.destroySoon net.js:433:40
+      1    0.0%    0.0%  LazyCompile: *Socket /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:20:17
+      1    0.0%    0.0%  LazyCompile: *Server.onconnection /var/app/current/node_modules/socket.io/lib/index.js:314:41
+      1    0.0%    0.0%  LazyCompile: *Server.(anonymous function) /var/app/current/node_modules/socket.io/lib/index.js:367:34
+      1    0.0%    0.0%  LazyCompile: *Polling.write /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:262:36
+      1    0.0%    0.0%  LazyCompile: *Polling /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:29:18
+      1    0.0%    0.0%  LazyCompile: *Negotiator /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/negotiator.js:4:20
+      1    0.0%    0.0%  LazyCompile: *Namespace.add /var/app/current/node_modules/socket.io/lib/namespace.js:153:35
+      1    0.0%    0.0%  LazyCompile: *IsAccessorDescriptor native v8natives.js:183:30
+      1    0.0%    0.0%  LazyCompile: *DefaultNumber native runtime.js:642:23
+      1    0.0%    0.0%  LazyCompile: *CheckDateCacheCurrent native date.js:533:31
+      1    0.0%    0.0%  LazyCompile: *Agent.createSocket _http_agent.js:155:40
+      1    0.0%    0.0%  LazyCompile: *<anonymous> net.js:586:60
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/accepts/node_modules/negotiator/lib/encoding.js:96:33
+      1    0.0%    0.0%  LazyCompile: *<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:290:37
+      1    0.0%    0.0%  KeyedStoreIC:  {917}
+      1    0.0%    0.0%  KeyedStoreIC:  {898}
+      1    0.0%    0.0%  KeyedStoreIC:  {1226}
+      1    0.0%    0.0%  KeyedStoreIC:  {1206}
+      1    0.0%    0.0%  Handler: write {2}
+      1    0.0%    0.0%  Handler: write
+      1    0.0%    0.0%  Handler: utf8Slice
+      1    0.0%    0.0%  Handler: uncork
+      1    0.0%    0.0%  Handler: type
+      1    0.0%    0.0%  Handler: test
+      1    0.0%    0.0%  Handler: sync
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {9}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {8}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {7}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {6}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {5}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {4}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {3}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {1}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {13}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {12}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {11}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f) {10}
+      1    0.0%    0.0%  Handler: symbol("nonexistent_symbol" hash 225f750f)
+      1    0.0%    0.0%  Handler: supportsBinary
+      1    0.0%    0.0%  Handler: split
+      1    0.0%    0.0%  Handler: some
+      1    0.0%    0.0%  Handler: slice
+      1    0.0%    0.0%  Handler: setPingTimeout
+      1    0.0%    0.0%  Handler: runInThisContext
+      1    0.0%    0.0%  Handler: rooms
+      1    0.0%    0.0%  Handler: resume {2}
+      1    0.0%    0.0%  Handler: resume {1}
+      1    0.0%    0.0%  Handler: resume
+      1    0.0%    0.0%  Handler: response
+      1    0.0%    0.0%  Handler: res {1}
+      1    0.0%    0.0%  Handler: request
+      1    0.0%    0.0%  Handler: removeListener {8}
+      1    0.0%    0.0%  Handler: removeListener {7}
+      1    0.0%    0.0%  Handler: removeListener {6}
+      1    0.0%    0.0%  Handler: removeListener {5}
+      1    0.0%    0.0%  Handler: removeListener {3}
+      1    0.0%    0.0%  Handler: removeListener {2}
+      1    0.0%    0.0%  Handler: removeListener {1}
+      1    0.0%    0.0%  Handler: removeListener
+      1    0.0%    0.0%  Handler: remove
+      1    0.0%    0.0%  Handler: remoteAddress
+      1    0.0%    0.0%  Handler: read {6}
+      1    0.0%    0.0%  Handler: read {5}
+      1    0.0%    0.0%  Handler: read {4}
+      1    0.0%    0.0%  Handler: read {1}
+      1    0.0%    0.0%  Handler: process {2}
+      1    0.0%    0.0%  Handler: process
+      1    0.0%    0.0%  Handler: prefinish {7}
+      1    0.0%    0.0%  Handler: prefinish {6}
+      1    0.0%    0.0%  Handler: prefinish {5}
+      1    0.0%    0.0%  Handler: prefinish {4}
+      1    0.0%    0.0%  Handler: prefinish {3}
+      1    0.0%    0.0%  Handler: prefinish
+      1    0.0%    0.0%  Handler: port {2}
+      1    0.0%    0.0%  Handler: port {1}
+      1    0.0%    0.0%  Handler: path
+      1    0.0%    0.0%  Handler: parseInt
+      1    0.0%    0.0%  Handler: packet {1}
+      1    0.0%    0.0%  Handler: oncomplete {8}
+      1    0.0%    0.0%  Handler: oncomplete {7}
+      1    0.0%    0.0%  Handler: oncomplete {6}
+      1    0.0%    0.0%  Handler: oncomplete {4}
+      1    0.0%    0.0%  Handler: oncomplete {3}
+      1    0.0%    0.0%  Handler: oncomplete {1}
+      1    0.0%    0.0%  Handler: oncomplete {13}
+      1    0.0%    0.0%  Handler: oncomplete {12}
+      1    0.0%    0.0%  Handler: oncomplete {11}
+      1    0.0%    0.0%  Handler: oncomplete
+      1    0.0%    0.0%  Handler: onRequest
+      1    0.0%    0.0%  Handler: on {4}
+      1    0.0%    0.0%  Handler: on {3}
+      1    0.0%    0.0%  Handler: on {2}
+      1    0.0%    0.0%  Handler: nsp {3}
+      1    0.0%    0.0%  Handler: name
+      1    0.0%    0.0%  Handler: method
+      1    0.0%    0.0%  Handler: localPort
+      1    0.0%    0.0%  Handler: listener
+      1    0.0%    0.0%  Handler: length
+      1    0.0%    0.0%  Handler: immediately {2}
+      1    0.0%    0.0%  Handler: immediately {1}
+      1    0.0%    0.0%  Handler: immediately
+      1    0.0%    0.0%  Handler: headers
+      1    0.0%    0.0%  Handler: hasWritable
+      1    0.0%    0.0%  Handler: handle {9}
+      1    0.0%    0.0%  Handler: handle {7}
+      1    0.0%    0.0%  Handler: handle {6}
+      1    0.0%    0.0%  Handler: handle {5}
+      1    0.0%    0.0%  Handler: handle {2}
+      1    0.0%    0.0%  Handler: handle {12}
+      1    0.0%    0.0%  Handler: handle {11}
+      1    0.0%    0.0%  Handler: handle {10}
+      1    0.0%    0.0%  Handler: getName
+      1    0.0%    0.0%  Handler: finish {8}
+      1    0.0%    0.0%  Handler: finish {7}
+      1    0.0%    0.0%  Handler: finish {6}
+      1    0.0%    0.0%  Handler: finish {5}
+      1    0.0%    0.0%  Handler: finish {4}
+      1    0.0%    0.0%  Handler: finish {3}
+      1    0.0%    0.0%  Handler: finish {1}
+      1    0.0%    0.0%  Handler: filter
+      1    0.0%    0.0%  Handler: error {5}
+      1    0.0%    0.0%  Handler: error {4}
+      1    0.0%    0.0%  Handler: error {3}
+      1    0.0%    0.0%  Handler: error {2}
+      1    0.0%    0.0%  Handler: error
+      1    0.0%    0.0%  Handler: end {8}
+      1    0.0%    0.0%  Handler: end {7}
+      1    0.0%    0.0%  Handler: end {6}
+      1    0.0%    0.0%  Handler: end {5}
+      1    0.0%    0.0%  Handler: end {3}
+      1    0.0%    0.0%  Handler: end {2}
+      1    0.0%    0.0%  Handler: end {1}
+      1    0.0%    0.0%  Handler: encodings
+      1    0.0%    0.0%  Handler: encoder
+      1    0.0%    0.0%  Handler: emit {9}
+      1    0.0%    0.0%  Handler: emit {8}
+      1    0.0%    0.0%  Handler: emit {7}
+      1    0.0%    0.0%  Handler: emit {4}
+      1    0.0%    0.0%  Handler: emit {3}
+      1    0.0%    0.0%  Handler: emit {2}
+      1    0.0%    0.0%  Handler: emit {1}
+      1    0.0%    0.0%  Handler: emit {14}
+      1    0.0%    0.0%  Handler: emit {13}
+      1    0.0%    0.0%  Handler: emit {12}
+      1    0.0%    0.0%  Handler: emit {11}
+      1    0.0%    0.0%  Handler: emit {10}
+      1    0.0%    0.0%  Handler: domain {9}
+      1    0.0%    0.0%  Handler: domain {8}
+      1    0.0%    0.0%  Handler: domain {7}
+      1    0.0%    0.0%  Handler: domain {6}
+      1    0.0%    0.0%  Handler: domain {5}
+      1    0.0%    0.0%  Handler: domain {4}
+      1    0.0%    0.0%  Handler: domain {40}
+      1    0.0%    0.0%  Handler: domain {3}
+      1    0.0%    0.0%  Handler: domain {39}
+      1    0.0%    0.0%  Handler: domain {38}
+      1    0.0%    0.0%  Handler: domain {37}
+      1    0.0%    0.0%  Handler: domain {36}
+      1    0.0%    0.0%  Handler: domain {35}
+      1    0.0%    0.0%  Handler: domain {34}
+      1    0.0%    0.0%  Handler: domain {33}
+      1    0.0%    0.0%  Handler: domain {30}
+      1    0.0%    0.0%  Handler: domain {2}
+      1    0.0%    0.0%  Handler: domain {29}
+      1    0.0%    0.0%  Handler: domain {28}
+      1    0.0%    0.0%  Handler: domain {27}
+      1    0.0%    0.0%  Handler: domain {26}
+      1    0.0%    0.0%  Handler: domain {24}
+      1    0.0%    0.0%  Handler: domain {23}
+      1    0.0%    0.0%  Handler: domain {21}
+      1    0.0%    0.0%  Handler: domain {20}
+      1    0.0%    0.0%  Handler: domain {1}
+      1    0.0%    0.0%  Handler: domain {19}
+      1    0.0%    0.0%  Handler: domain {18}
+      1    0.0%    0.0%  Handler: domain {17}
+      1    0.0%    0.0%  Handler: domain {16}
+      1    0.0%    0.0%  Handler: domain {15}
+      1    0.0%    0.0%  Handler: domain {14}
+      1    0.0%    0.0%  Handler: domain {13}
+      1    0.0%    0.0%  Handler: domain {12}
+      1    0.0%    0.0%  Handler: domain {11}
+      1    0.0%    0.0%  Handler: domain
+      1    0.0%    0.0%  Handler: detectIncompleteChar
+      1    0.0%    0.0%  Handler: destroy
+      1    0.0%    0.0%  Handler: data {9}
+      1    0.0%    0.0%  Handler: data {8}
+      1    0.0%    0.0%  Handler: data {7}
+      1    0.0%    0.0%  Handler: data {5}
+      1    0.0%    0.0%  Handler: data {4}
+      1    0.0%    0.0%  Handler: close {8}
+      1    0.0%    0.0%  Handler: close {7}
+      1    0.0%    0.0%  Handler: close {6}
+      1    0.0%    0.0%  Handler: close {5}
+      1    0.0%    0.0%  Handler: close {3}
+      1    0.0%    0.0%  Handler: close {2}
+      1    0.0%    0.0%  Handler: cleanup
+      1    0.0%    0.0%  Handler: chunkedEncoding {1}
+      1    0.0%    0.0%  Handler: charAt
+      1    0.0%    0.0%  Handler: cb
+      1    0.0%    0.0%  Handler: call {7}
+      1    0.0%    0.0%  Handler: call {6}
+      1    0.0%    0.0%  Handler: call {5}
+      1    0.0%    0.0%  Handler: call {4}
+      1    0.0%    0.0%  Handler: call {3}
+      1    0.0%    0.0%  Handler: call {1}
+      1    0.0%    0.0%  Handler: call
+      1    0.0%    0.0%  Handler: bufferedRequestCount
+      1    0.0%    0.0%  Handler: broadcast
+      1    0.0%    0.0%  Handler: auth
+      1    0.0%    0.0%  Handler: async {5}
+      1    0.0%    0.0%  Handler: async {4}
+      1    0.0%    0.0%  Handler: async {2}
+      1    0.0%    0.0%  Handler: assignSocket
+      1    0.0%    0.0%  Handler: allowHalfOpen {1}
+      1    0.0%    0.0%  Handler: allowHalfOpen
+      1    0.0%    0.0%  Handler: agentRemove
+      1    0.0%    0.0%  Handler: agent
+      1    0.0%    0.0%  Handler: add
+      1    0.0%    0.0%  Handler: _writev
+      1    0.0%    0.0%  Handler: _writeGeneric
+      1    0.0%    0.0%  Handler: _unrefTimer {1}
+      1    0.0%    0.0%  Handler: _maxListeners {8}
+      1    0.0%    0.0%  Handler: _maxListeners {7}
+      1    0.0%    0.0%  Handler: _maxListeners {6}
+      1    0.0%    0.0%  Handler: _maxListeners {4}
+      1    0.0%    0.0%  Handler: _maxListeners {3}
+      1    0.0%    0.0%  Handler: _maxListeners {2}
+      1    0.0%    0.0%  Handler: _maxListeners {1}
+      1    0.0%    0.0%  Handler: _maxListeners {16}
+      1    0.0%    0.0%  Handler: _maxListeners {15}
+      1    0.0%    0.0%  Handler: _maxListeners {14}
+      1    0.0%    0.0%  Handler: _maxListeners {13}
+      1    0.0%    0.0%  Handler: _maxListeners {12}
+      1    0.0%    0.0%  Handler: _maxListeners {11}
+      1    0.0%    0.0%  Handler: _idleTimeout
+      1    0.0%    0.0%  Handler: _idlePrev {9}
+      1    0.0%    0.0%  Handler: _idleNext {4}
+      1    0.0%    0.0%  Handler: _flushFlag
+      1    0.0%    0.0%  Handler: _flush {1}
+      1    0.0%    0.0%  Handler: _flush
+      1    0.0%    0.0%  Handler: _eventsCount {9}
+      1    0.0%    0.0%  Handler: _eventsCount {8}
+      1    0.0%    0.0%  Handler: _eventsCount {6}
+      1    0.0%    0.0%  Handler: _eventsCount {5}
+      1    0.0%    0.0%  Handler: _eventsCount {4}
+      1    0.0%    0.0%  Handler: _eventsCount {1}
+      1    0.0%    0.0%  Handler: _eventsCount {11}
+      1    0.0%    0.0%  Handler: _eventsCount {10}
+      1    0.0%    0.0%  Handler: _eventsCount
+      1    0.0%    0.0%  Handler: _events {9}
+      1    0.0%    0.0%  Handler: _events {7}
+      1    0.0%    0.0%  Handler: _events {6}
+      1    0.0%    0.0%  Handler: _events {41}
+      1    0.0%    0.0%  Handler: _events {40}
+      1    0.0%    0.0%  Handler: _events {39}
+      1    0.0%    0.0%  Handler: _events {38}
+      1    0.0%    0.0%  Handler: _events {37}
+      1    0.0%    0.0%  Handler: _events {36}
+      1    0.0%    0.0%  Handler: _events {35}
+      1    0.0%    0.0%  Handler: _events {34}
+      1    0.0%    0.0%  Handler: _events {33}
+      1    0.0%    0.0%  Handler: _events {32}
+      1    0.0%    0.0%  Handler: _events {31}
+      1    0.0%    0.0%  Handler: _events {30}
+      1    0.0%    0.0%  Handler: _events {2}
+      1    0.0%    0.0%  Handler: _events {29}
+      1    0.0%    0.0%  Handler: _events {28}
+      1    0.0%    0.0%  Handler: _events {27}
+      1    0.0%    0.0%  Handler: _events {26}
+      1    0.0%    0.0%  Handler: _events {25}
+      1    0.0%    0.0%  Handler: _events {24}
+      1    0.0%    0.0%  Handler: _events {23}
+      1    0.0%    0.0%  Handler: _events {22}
+      1    0.0%    0.0%  Handler: _events {21}
+      1    0.0%    0.0%  Handler: _events {20}
+      1    0.0%    0.0%  Handler: _events {1}
+      1    0.0%    0.0%  Handler: _events {19}
+      1    0.0%    0.0%  Handler: _events {18}
+      1    0.0%    0.0%  Handler: _events {16}
+      1    0.0%    0.0%  Handler: _events {15}
+      1    0.0%    0.0%  Handler: _events {13}
+      1    0.0%    0.0%  Handler: _events {11}
+      1    0.0%    0.0%  Handler: _events
+      1    0.0%    0.0%  Handler: _deferToConnect
+      1    0.0%    0.0%  Handler: _closed
+      1    0.0%    0.0%  Handler: _chunks {7}
+      1    0.0%    0.0%  Handler: _chunks {6}
+      1    0.0%    0.0%  Handler: _chunks {4}
+      1    0.0%    0.0%  Handler: _chunks {2}
+      1    0.0%    0.0%  Handler: _chunks {1}
+      1    0.0%    0.0%  Handler: _chunks
+      1    0.0%    0.0%  Handler: String {1}
+      1    0.0%    0.0%  Handler: String
+      1    0.0%    0.0%  Handler: Set-Cookie
+      1    0.0%    0.0%  Handler: Object {1}
+      1    0.0%    0.0%  Handler: Math
+      1    0.0%    0.0%  Handler: ArrayBuffer {1}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {53}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {52}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {51}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {50}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {49}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {38}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {33}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {30}
+      1    0.0%    0.0%  Handler: An IC handler from the snapshot {14}
+      1    0.0%    0.0%  Handler: Access-Control-Allow-Origin {3}
+      1    0.0%    0.0%  Handler: /#ua2rxSWSfUxS0wjDAAH7
+      1    0.0%    0.0%  Handler: /#tpQv8TTasRXNW5niAAIF
+      1    0.0%    0.0%  Handler: /#RxNRv-i9zz-ltWP-AAAI
+      1    0.0%    0.0%  Handler: /#CJQIUrjTLb_Bzh2KAAIZ
+      1    0.0%    0.0%  Handler: /#6g0wU5Ivt4vffHN8AAUP
+      1    0.0%    0.0%  Handler: $toString {2}
+      1    0.0%    0.0%  Handler: $toPrimitive
+      1    0.0%    0.0%  Handler: $toNumber
+      1    0.0%    0.0%  Function: ~<anonymous> internal/socket_list.js:1:11
+      1    0.0%    0.0%  Function: ~<anonymous> dns.js:1:11
+      1    0.0%    0.0%  Builtin: MakeQuadragenarianCodeYoungAgainOddMarking
+      1    0.0%    0.0%  Builtin: MakeQuadragenarianCodeYoungAgainEvenMarking
+      1    0.0%    0.0%  Builtin: HandleApiCallConstruct
+      1    0.0%    0.0%  Builtin: ArrayUnshift
+
+ [C++]:
+   ticks  total  nonlib   name
+
+ [Summary]:
+   ticks  total  nonlib   name
+  31007   26.3%   99.1%  JavaScript
+      0    0.0%    0.0%  C++
+   5163    4.4%   16.5%  GC
+  86554   73.4%          Shared libraries
+    282    0.2%          Unaccounted
+
+ [C++ entry points]:
+   ticks    cpp   total   name
+
+ [Bottom up (heavy) profile]:
+  Note: percentage shows a share of a particular caller in the total
+  amount of its parent calls.
+  Callers occupying less than 2.0% are not shown.
+
+   ticks parent  name
+  47058   39.9%  /lib64/libc-2.17.so
+   2222    4.7%    /opt/elasticbeanstalk/node-install/node-v4.4.6-linux-x64/bin/node
+    784   35.3%      LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    777   99.1%        LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    777  100.0%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    776   99.9%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+    391   17.6%      LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+    255   65.2%        LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    255  100.0%          LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    255  100.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    136   34.8%        LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    109   80.1%          LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    105   96.3%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     12    8.8%          LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+      9   75.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      3   25.0%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      5    3.7%          Handler: /#0WR24b2yWq07hkEXAAAN
+      3   60.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      2   40.0%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      4    2.9%          Handler: prefinish {1}
+      3   75.0%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1   25.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      3    2.2%          Handler: _events {2}
+      2   66.7%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1   33.3%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      3    2.2%          Handler: /#RxNRv-i9zz-ltWP-AAAI
+      3  100.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    226   10.2%      LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:121:39
+    212   93.8%        LazyCompile: *Adapter.broadcast /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:107:39
+    212  100.0%          LazyCompile: ~Namespace.emit /var/app/current/node_modules/socket.io/lib/namespace.js:204:36
+    212  100.0%            LazyCompile: ~<anonymous> /var/app/current/index.js:20:49
+     10    4.4%        LazyCompile: *Encoder.encode /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser/index.js:127:36
+     10  100.0%          LazyCompile: ~Adapter.broadcast /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:107:39
+     10  100.0%            LazyCompile: ~Namespace.emit /var/app/current/node_modules/socket.io/lib/namespace.js:204:36
+    222   10.0%      LazyCompile: *ArrayBuffer native arraybuffer.js:13:32
+    222  100.0%        LazyCompile: *Uint8ArrayConstructByLength native typedarray.js:76:37
+    222  100.0%          LazyCompile: *Uint8Array native typedarray.js:122:31
+    222  100.0%            LazyCompile: createBuffer buffer.js:22:22
+    137    6.2%      LazyCompile: *emit events.js:117:44
+     54   39.4%        LazyCompile: *Socket.send.Socket.write /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:352:34
+     54  100.0%          LazyCompile: ~writeToEngine /var/app/current/node_modules/socket.io/lib/client.js:145:25
+     54  100.0%            LazyCompile: *Client.packet /var/app/current/node_modules/socket.io/lib/client.js:140:35
+     50   36.5%        LazyCompile: *Readable.read _stream_readable.js:258:35
+     50  100.0%          LazyCompile: *resume_ _stream_readable.js:723:17
+     50  100.0%            LazyCompile: nextTickCallbackWith2Args node.js:439:39
+      7    5.1%        LazyCompile: *ServerResponse.assignSocket _http_server.js:134:49
+      7  100.0%          LazyCompile: ~parserOnIncoming _http_server.js:459:28
+      7  100.0%            LazyCompile: *parserOnHeadersComplete _http_common.js:43:33
+      5    3.6%        LazyCompile: *Polling.onPollRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:79:44
+      5  100.0%          LazyCompile: *XHR.onRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:39:36
+      5  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:203:35
+      5    3.6%        LazyCompile: *OutgoingMessage.end _http_outgoing.js:539:41
+      4   80.0%          LazyCompile: ~respond /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:318:19
+      2   50.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:306:41
+      2   50.0%            LazyCompile: *Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+      1   20.0%          LazyCompile: ~onEnd /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:170:18
+      1  100.0%            LazyCompile: *emit events.js:117:44
+      4    2.9%        LazyCompile: *Client.ondecoded /var/app/current/node_modules/socket.io/lib/client.js:187:38
+      4  100.0%          LazyCompile: ~<anonymous> native v8natives.js:1199:16
+      4  100.0%            LazyCompile: ~Emitter.emit /var/app/current/node_modules/socket.io/node_modules/socket.io-parser/node_modules/component-emitter/index.js:126:34
+      3    2.2%        LazyCompile: ~<anonymous> native v8natives.js:1199:16
+      3  100.0%          LazyCompile: *emit events.js:117:44
+      3  100.0%            LazyCompile: *Polling.onPollRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:79:44
+      3    2.2%        LazyCompile: *resume_ _stream_readable.js:723:17
+      3  100.0%          LazyCompile: nextTickCallbackWith2Args node.js:439:39
+      3  100.0%            LazyCompile: *_tickCallback node.js:336:27
+     74    3.3%      LazyCompile: *addListener events.js:191:58
+     50   67.6%        LazyCompile: *Readable.on _stream_readable.js:672:33
+     13   26.0%          LazyCompile: *once events.js:249:44
+      5   38.5%            LazyCompile: *Duplex _stream_duplex.js:23:16
+      4   30.8%            LazyCompile: *Transform _stream_transform.js:89:19
+      4   30.8%            LazyCompile: *Socket net.js:115:16
+      9   18.0%          LazyCompile: *Polling.onDataRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:124:44
+      9  100.0%            LazyCompile: *XHR.onRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:39:36
+      9   18.0%          LazyCompile: *Polling.compress /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:332:39
+      8   88.9%            LazyCompile: *Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+      1   11.1%            LazyCompile: ~Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+      5   10.0%          LazyCompile: *tickOnSocket _http_client.js:472:22
+      5  100.0%            LazyCompile: *onSocketNT _http_client.js:509:20
+      3    6.0%          LazyCompile: *Socket net.js:115:16
+      3  100.0%            LazyCompile: *Agent.createSocket _http_agent.js:155:40
+      3    6.0%          LazyCompile: *Polling.onPollRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:79:44
+      3  100.0%            LazyCompile: *XHR.onRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:39:36
+      2    4.0%          LazyCompile: ~once events.js:249:44
+      1   50.0%            LazyCompile: *Transform _stream_transform.js:89:19
+      1   50.0%            LazyCompile: *Socket net.js:115:16
+      2    4.0%          LazyCompile: ~Agent.createSocket _http_agent.js:155:40
+      2  100.0%            LazyCompile: *Agent.addRequest _http_agent.js:108:38
+      1    2.0%          LazyCompile: ~Polling.compress /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:332:39
+      1  100.0%            LazyCompile: ~Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+      1    2.0%          LazyCompile: ~<anonymous> /var/app/current/index.js:94:45
+      1  100.0%            LazyCompile: ~g events.js:255:13
+      1    2.0%          LazyCompile: *connectionListener _http_server.js:265:28
+      1  100.0%            LazyCompile: *emit events.js:117:44
+      1    2.0%          LazyCompile: *Agent.createSocket _http_agent.js:155:40
+      1  100.0%            LazyCompile: *Agent.addRequest _http_agent.js:108:38
+     10   13.5%        LazyCompile: Server.handshake /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:262:38
+     10  100.0%          LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:203:35
+     10  100.0%            LazyCompile: Server.checkRequest /var/app/current/node_modules/socket.io/lib/index.js:60:41
+      6    8.1%        LazyCompile: *Socket.setTransport /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:143:42
+      4   66.7%          Handler: hasOwnProperty {NaN}
+      4  100.0%            LazyCompile: Server.handshake /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:262:38
+      1   16.7%          LazyCompile: ~Socket /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:20:17
+      1  100.0%            LazyCompile: Server.handshake /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:262:38
+      1   16.7%          LazyCompile: Server.handshake /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:262:38
+      1  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:203:35
+      4    5.4%        LazyCompile: ~parserOnIncoming _http_server.js:459:28
+      3   75.0%          LazyCompile: *parserOnHeadersComplete _http_common.js:43:33
+      1   25.0%          LazyCompile: ~parserOnHeadersComplete _http_common.js:43:33
+      2    2.7%        LazyCompile: *once events.js:249:44
+      1   50.0%          LazyCompile: ClientRequest _http_client.js:18:23
+      1  100.0%            LazyCompile: *exports.get http.js:34:23
+      1   50.0%          LazyCompile: *Socket.setTransport /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:143:42
+      1  100.0%            Handler: hasOwnProperty {NaN}
+
+  32581   27.6%  /opt/elasticbeanstalk/node-install/node-v4.4.6-linux-x64/bin/node
+  24253   74.4%    /opt/elasticbeanstalk/node-install/node-v4.4.6-linux-x64/bin/node
+   2920   12.0%      LazyCompile: ~Socket._writeGeneric net.js:630:42
+   2741   93.9%        LazyCompile: *clearBuffer _stream_writable.js:369:21
+   2741  100.0%          LazyCompile: *OutgoingMessage.end _http_outgoing.js:539:41
+   2556   93.3%            LazyCompile: ~respond /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:318:19
+    165    6.0%            LazyCompile: *sendErrorMessage /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:226:27
+    136    4.7%        LazyCompile: *doWrite _stream_writable.js:292:17
+    136  100.0%          LazyCompile: ~clearBuffer _stream_writable.js:369:21
+     89   65.4%            LazyCompile: *OutgoingMessage.end _http_outgoing.js:539:41
+     47   34.6%            LazyCompile: *Writable.uncork _stream_writable.js:226:37
+   2604   10.7%      LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:121:39
+   2476   95.1%        LazyCompile: *Adapter.broadcast /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:107:39
+   2476  100.0%          LazyCompile: ~Namespace.emit /var/app/current/node_modules/socket.io/lib/namespace.js:204:36
+   2476  100.0%            LazyCompile: ~<anonymous> /var/app/current/index.js:20:49
+     96    3.7%        LazyCompile: *Encoder.encode /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser/index.js:127:36
+     96  100.0%          LazyCompile: ~Adapter.broadcast /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:107:39
+     96  100.0%            LazyCompile: ~Namespace.emit /var/app/current/node_modules/socket.io/lib/namespace.js:204:36
+   2576   10.6%      LazyCompile: ~writeToEngine /var/app/current/node_modules/socket.io/lib/client.js:145:25
+   2573   99.9%        LazyCompile: *Client.packet /var/app/current/node_modules/socket.io/lib/client.js:140:35
+   2573  100.0%          LazyCompile: *Socket.packet /var/app/current/node_modules/socket.io/lib/socket.js:206:35
+   2573  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:121:39
+   1650    6.8%      LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+   1128   68.4%        LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+   1122   99.5%          LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+   1122  100.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    522   31.6%        LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    431   82.6%          LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    403   93.5%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     19    4.4%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      9    2.1%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     44    8.4%          LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     26   59.1%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     18   40.9%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     17    3.3%          Handler: _events {2}
+     16   94.1%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1    5.9%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     12    2.3%          Handler: /#0WR24b2yWq07hkEXAAAN
+      8   66.7%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      4   33.3%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     11    2.1%          Handler: prefinish {1}
+     11  100.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+   1618    6.7%      LazyCompile: *utf8encode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:103:21
+   1074   66.4%        LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+   1067   99.3%          LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+   1067  100.0%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    544   33.6%        LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    419   77.0%          LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    383   91.4%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     27    6.4%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      9    2.1%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     64   11.8%          LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     43   67.2%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     21   32.8%            LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     22    4.0%          Handler: /#RxNRv-i9zz-ltWP-AAAI
+     22  100.0%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     20    3.7%          Handler: _events {2}
+     20  100.0%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     19    3.5%          Handler: /#0WR24b2yWq07hkEXAAAN
+     19  100.0%            LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+   1178    4.9%      LazyCompile: *ucs2decode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:23:21
+   1159   98.4%        LazyCompile: *utf8encode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:103:21
+    705   60.8%          LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    697   98.9%            LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    454   39.2%          LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    362   79.7%            LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     38    8.4%            LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     23    5.1%            Handler: _events {2}
+     17    3.7%            Handler: /#0WR24b2yWq07hkEXAAAN
+     14    3.1%            Handler: /#RxNRv-i9zz-ltWP-AAAI
+   1172    4.8%      LazyCompile: *stringToBuffer /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:337:24
+   1172  100.0%        LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+    778   66.4%          LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    776   99.7%            LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    394   33.6%          LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    322   81.7%            LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     37    9.4%            LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     13    3.3%            Handler: /#RxNRv-i9zz-ltWP-AAAI
+     11    2.8%            Handler: _events {2}
+   1159    4.8%      LazyCompile: *Client.packet /var/app/current/node_modules/socket.io/lib/client.js:140:35
+   1158   99.9%        LazyCompile: *Socket.packet /var/app/current/node_modules/socket.io/lib/socket.js:206:35
+   1158  100.0%          LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:121:39
+   1104   95.3%            LazyCompile: *Adapter.broadcast /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:107:39
+     34    2.9%            LazyCompile: *Encoder.encode /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/node_modules/socket.io-parser/index.js:127:36
+   1118    4.6%      LazyCompile: *setPrototypeOf native v8natives.js:653:30
+    370   33.1%        LazyCompile: *Buffer buffer.js:50:16
+    365   98.6%          LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+    228   62.5%            LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    137   37.5%            LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    307   27.5%        LazyCompile: *stringToBuffer /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:337:24
+    307  100.0%          LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+    209   68.1%            LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+     98   31.9%            LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    300   26.8%        LazyCompile: *Buffer.concat buffer.js:208:25
+    280   93.3%          LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+    201   71.8%            LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+     79   28.2%            LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+     12    4.0%          LazyCompile: ~onData /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:154:19
+     12  100.0%            LazyCompile: *emit events.js:117:44
+     95    8.5%        LazyCompile: createBuffer buffer.js:22:22
+     35   36.8%          LazyCompile: *Polling.onDataRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:124:44
+     35  100.0%            LazyCompile: *XHR.onRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:39:36
+     28   29.5%          LazyCompile: *Buffer buffer.js:50:16
+     22   78.6%            LazyCompile: ~cleanup /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:141:20
+      4   14.3%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+      2    7.1%            LazyCompile: ~Polling.onDataRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:124:44
+     13   13.7%          LazyCompile: *Zlib zlib.js:291:14
+     13  100.0%            LazyCompile: *exports.createGzip zlib.js:91:30
+     10   10.5%          LazyCompile: *stringToBuffer /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:337:24
+     10  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+      6    6.3%          LazyCompile: *Buffer.concat buffer.js:208:25
+      3   50.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:409:35
+      3   50.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+      3    3.2%          LazyCompile: *Zlib._flush zlib.js:428:33
+      3  100.0%            LazyCompile: ~<anonymous> _stream_transform.js:116:34
+     27    2.4%        LazyCompile: *slice buffer.js:604:40
+     26   96.3%          LazyCompile: ~callback zlib.js:562:20
+      1    3.7%          LazyCompile: ~exports.decodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:423:42
+      1  100.0%            LazyCompile: ~exports.decodePayload /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:253:34
+   1006    4.1%      LazyCompile: *emit events.js:117:44
+    538   53.5%        LazyCompile: *Socket.send.Socket.write /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:352:34
+    538  100.0%          LazyCompile: ~writeToEngine /var/app/current/node_modules/socket.io/lib/client.js:145:25
+    536   99.6%            LazyCompile: *Client.packet /var/app/current/node_modules/socket.io/lib/client.js:140:35
+     82    8.2%        LazyCompile: *ServerResponse.assignSocket _http_server.js:134:49
+     82  100.0%          LazyCompile: ~parserOnIncoming _http_server.js:459:28
+     82  100.0%            LazyCompile: *parserOnHeadersComplete _http_common.js:43:33
+     66    6.6%        LazyCompile: *OutgoingMessage.end _http_outgoing.js:539:41
+     31   47.0%          LazyCompile: ~respond /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:318:19
+     30   96.8%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:306:41
+      1    3.2%            LazyCompile: *Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+     31   47.0%          LazyCompile: ~onEnd /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:170:18
+     31  100.0%            LazyCompile: *emit events.js:117:44
+      3    4.5%          LazyCompile: *sendErrorMessage /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:226:27
+      3  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:203:35
+     62    6.2%        LazyCompile: *Readable.read _stream_readable.js:258:35
+     62  100.0%          LazyCompile: *resume_ _stream_readable.js:723:17
+     62  100.0%            LazyCompile: nextTickCallbackWith2Args node.js:439:39
+     45    4.5%        LazyCompile: *Polling.onPollRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:79:44
+     45  100.0%          LazyCompile: *XHR.onRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling-xhr.js:39:36
+     45  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/server.js:203:35
+     37    3.7%        LazyCompile: ~<anonymous> native v8natives.js:1199:16
+     37  100.0%          LazyCompile: *emit events.js:117:44
+     37  100.0%            LazyCompile: *Polling.onPollRequest /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:79:44
+     29    2.9%        LazyCompile: *Socket.onPacket /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/socket.js:78:38
+     29  100.0%          LazyCompile: ~<anonymous> native v8natives.js:1199:16
+     29  100.0%            LazyCompile: *emit events.js:117:44
+     27    2.7%        LazyCompile: ~callback /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:201:26
+     23   85.2%          LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:457:27
+     23  100.0%            LazyCompile: *InnerArrayForEach native array.js:924:27
+      3   11.1%          LazyCompile: *Polling.onData /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:198:37
+      3  100.0%            LazyCompile: ~onEnd /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:170:18
+      1    3.7%          LazyCompile: ~exports.decodePayload /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:253:34
+      1  100.0%            LazyCompile: *Polling.onData /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:198:37
+     22    2.2%        LazyCompile: *emitReadable_ _stream_readable.js:417:23
+     22  100.0%          LazyCompile: nextTickCallbackWith1Arg node.js:428:38
+     22  100.0%            LazyCompile: *_tickCallback node.js:336:27
+    648    2.7%      LazyCompile: *IncomingMessage._addHeaderLine _http_incoming.js:123:52
+    641   98.9%        LazyCompile: *parserOnHeadersComplete _http_common.js:43:33
+     16    2.5%          LazyCompile: *socketOnData _http_client.js:313:22
+     16  100.0%            LazyCompile: *emit events.js:117:44
+    539    2.2%      LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    532   98.7%        LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    532  100.0%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    530   99.6%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+
+   6551    5.6%  /lib64/libpthread-2.17.so
+   2889   44.1%    LazyCompile: *Zlib._transform zlib.js:476:37
+   2201   76.2%      LazyCompile: *Polling.compress /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:332:39
+   2201  100.0%        LazyCompile: *Polling.doWrite /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:276:38
+   2201  100.0%          LazyCompile: *Polling.write /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:262:36
+   2201  100.0%            LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:246:62
+    688   23.8%      LazyCompile: *Zlib._flush zlib.js:428:33
+    688  100.0%        LazyCompile: ~<anonymous> _stream_transform.js:116:34
+    688  100.0%          LazyCompile: ~g events.js:255:13
+    688  100.0%            LazyCompile: *emit events.js:117:44
+   2034   31.0%    LazyCompile: *createWriteReq net.js:703:24
+   2034  100.0%      LazyCompile: ~Socket._writeGeneric net.js:630:42
+   2019   99.3%        LazyCompile: *clearBuffer _stream_writable.js:369:21
+   2019  100.0%          LazyCompile: *OutgoingMessage.end _http_outgoing.js:539:41
+   2018  100.0%            LazyCompile: ~onEnd /var/app/current/node_modules/socket.io/node_modules/engine.io/lib/transports/polling.js:170:18
+    907   13.8%    /opt/elasticbeanstalk/node-install/node-v4.4.6-linux-x64/bin/node
+    246   27.1%      LazyCompile: *EventEmitter events.js:5:22
+    246  100.0%        LazyCompile: *Stream stream.js:22:16
+    246  100.0%          LazyCompile: *Readable _stream_readable.js:81:18
+    246  100.0%            LazyCompile: *Duplex _stream_duplex.js:23:16
+    127   14.0%      LazyCompile: ~Date native date.js:71:25
+    127  100.0%        LazyCompile: *Namespace.add /var/app/current/node_modules/socket.io/lib/namespace.js:153:35
+    127  100.0%          LazyCompile: *Client.connect /var/app/current/node_modules/socket.io/lib/client.js:61:36
+    127  100.0%            Handler: _events {10}
+    127   14.0%      LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:121:39
+    126   99.2%        LazyCompile: *Adapter.broadcast /var/app/current/node_modules/socket.io/node_modules/socket.io-adapter/index.js:107:39
+    126  100.0%          LazyCompile: ~Namespace.emit /var/app/current/node_modules/socket.io/lib/namespace.js:204:36
+    126  100.0%            LazyCompile: ~<anonymous> /var/app/current/index.js:20:49
+    121   13.3%      LazyCompile: *unrefTimeout timers.js:531:22
+    172    2.6%    LazyCompile: *Console.log console.js:38:33
+    172  100.0%      LazyCompile: ~<anonymous> native v8natives.js:1199:16
+    100   58.1%        LazyCompile: <anonymous> /var/app/current/index.js:99:41
+     99   99.0%          LazyCompile: *emit events.js:117:44
+     99  100.0%            LazyCompile: *endReadableNT _stream_readable.js:908:23
+     72   41.9%        LazyCompile: ~<anonymous> /var/app/current/index.js:134:42
+     72  100.0%          LazyCompile: *emit events.js:117:44
+     70   97.2%            Handler: /#0TfuvvI7DTiolOMSAAH4
+      2    2.8%            LazyCompile: ~Socket.emit /var/app/current/node_modules/socket.io/lib/socket.js:126:33
+    164    2.5%    LazyCompile: *lookup dns.js:107:33
+    164  100.0%      LazyCompile: *lookupAndConnect net.js:911:26
+    164  100.0%        LazyCompile: ~Socket.connect net.js:855:36
+    107   65.2%          LazyCompile: *Agent.createSocket _http_agent.js:155:40
+    107  100.0%            LazyCompile: *Agent.addRequest _http_agent.js:108:38
+     57   34.8%          LazyCompile: ~exports.connect.exports.createConnection net.js:61:54
+     57  100.0%            LazyCompile: ~Agent.createSocket _http_agent.js:155:40
+
+   3193    2.7%  LazyCompile: *encodeCodePoint /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:81:26
+   2524   79.0%    LazyCompile: *utf8encode /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/node_modules/utf8/utf8.js:103:21
+   1765   69.9%      LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+   1762   99.8%        LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+   1762  100.0%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+   1762  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+    759   30.1%      LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    603   79.4%        LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    576   95.5%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    576  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     14    2.3%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     14  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     13    2.2%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     13  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+     69    9.1%        LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     44   63.8%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     43   97.7%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      1    2.3%            LazyCompile: ~map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     25   36.2%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     25  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     27    3.6%        Handler: /#RxNRv-i9zz-ltWP-AAAI
+     19   70.4%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     19  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      8   29.6%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      8  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     23    3.0%        Handler: /#0WR24b2yWq07hkEXAAAN
+     16   69.6%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     16  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      7   30.4%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      7  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     20    2.6%        Handler: prefinish {1}
+     19   95.0%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     19  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      1    5.0%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     17    2.2%        Handler: _events {2}
+     16   94.1%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     16  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      1    5.9%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+    454   14.2%    LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    453   99.8%      LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    453  100.0%        LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    453  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+    453  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+    215    6.7%    LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    175   81.4%      LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    169   96.6%        LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    169  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+    169  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+     18    8.4%      LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     14   77.8%        LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     14  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     14  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      4   22.2%        LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      4  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      4  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      7    3.3%      Handler: _events {2}
+      6   85.7%        LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      6  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      6  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      1   14.3%        LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      1  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      7    3.3%      Handler: /#0WR24b2yWq07hkEXAAAN
+      6   85.7%        LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      6  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      6  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      1   14.3%        LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      1  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      1  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+      5    2.3%      Handler: prefinish {1}
+      5  100.0%        LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      5  100.0%          LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      5  100.0%            LazyCompile: *exports.encodePayloadAsBinary /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:379:42
+
+   3000    2.5%  LazyCompile: *stringToBuffer /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:337:24
+   3000  100.0%    LazyCompile: ~<anonymous> /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:385:49
+   2048   68.3%      LazyCompile: *exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+   2043   99.8%        LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+   2043  100.0%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+   2043  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+    952   31.7%      LazyCompile: ~exports.encodePacket /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:52:33
+    761   79.9%        LazyCompile: ~encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+    727   95.5%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+    726   99.9%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     23    3.0%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     23  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     85    8.9%        LazyCompile: *encodeOne /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:384:21
+     66   77.6%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     63   95.5%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      3    4.5%            LazyCompile: ~map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     19   22.4%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     19  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     32    3.4%        Handler: /#0WR24b2yWq07hkEXAAAN
+     26   81.3%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     26  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      6   18.8%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      6  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     27    2.8%        Handler: /#RxNRv-i9zz-ltWP-AAAI
+     22   81.5%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     22  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      5   18.5%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      5  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     26    2.7%        Handler: _events {2}
+     21   80.8%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     21  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+      5   19.2%          LazyCompile: *eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+      5  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+     21    2.2%        Handler: prefinish {1}
+     21  100.0%          LazyCompile: ~eachWithIndex /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:233:31
+     21  100.0%            LazyCompile: *map /var/app/current/node_modules/socket.io/node_modules/engine.io/node_modules/engine.io-parser/lib/index.js:229:13
+

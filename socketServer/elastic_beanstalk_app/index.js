@@ -1,16 +1,20 @@
 var util = require('util');
 var http = require('http');
 var express = require('express');
+var os = require('os');
+var fs = require('fs');
 
 var app = express();
-var server = http.Server(app);
+var server = http.createServer(app);
 var io = require('socket.io')(server);
 
 var rooms = {};
+var socket_count = 0;
+var start_time;
 
-io.on('connect', function(socket) {
+io.on('connect', function (socket) {
     if (socket.handshake.query.consumer_token) {
-        if (socket.handshake.query.consumer_token == process.env.consumer_token) {
+        if (socket.handshake.query.consumer_token == process.env.CONSUMER_TOKEN) {
             console.log('consumer connected');
             // pass filtered 'internal_data' messages from consumer app to 'data' messages received by sockets
             socket.on('internal_data', function (data) {
@@ -26,16 +30,19 @@ io.on('connect', function(socket) {
                     }
                 }
             });
+            socket.on('disconnect', function () {
+                console.log('consumer disconnected')
+            });
         }
         else {
-            console.log('ERROR: consumer_token authentication failed');
+            console.error('consumer_token authentication failed');
             socket.disconnect()
         }
     }
     else block: {
-        console.log(socket.handshake);
         // take in client arguments from query.args in the initial handshake
-        // if user doesn't pass any args, or doesn't pass a sensor_network arg, stream them everything from AoT
+        // if user doesn't pass any args, or doesn't pass a sensor_network arg,
+        // stream them everything from ObservationStream
         var args = {};
         try {
             if (socket.handshake.query.nodes) {
@@ -77,9 +84,8 @@ io.on('connect', function(socket) {
         else {
             args.sensor_network = socket.handshake.query.sensor_network
         }
-        console.log(args);
         // send a GET request to the query API that will return no data, but will identify validation errors
-        var validation_query = util.format('http://'+process.env.plenario_host+'/v1/api/sensor-networks/%s/query?limit=0', args.sensor_network);
+        var validation_query = util.format('http://' + process.env.PLENARIO_HOST + '/v1/api/sensor-networks/%s/query?limit=0', args.sensor_network);
         for (var i = 0; i < Object.keys(args).length; i++) {
             if (Object.keys(args)[i] != 'sensor_network') {
                 validation_query += '&' + Object.keys(args)[i] + '=' + args[Object.keys(args)[i]]
@@ -107,15 +113,27 @@ io.on('connect', function(socket) {
                         else {
                             rooms[JSON.stringify(args)] = 1;
                         }
-                        console.log('rooms open:')
-                        console.log(rooms)
+                        if (socket_count == 0) {
+                            start_time = Math.floor(Date.now() / 1000)
+                        }
+                        socket_count++;
+                        console.log(socket.handshake.query.transport);
+                        console.log('socket_count: '+socket_count);
+                        fs.appendFile('performance_test.log', JSON.stringify({loadavg: os.loadavg(),
+                        freemem: os.freemem(),
+                        sockets: socket_count,
+                        time: Math.floor(Date.now() / 1000)-start_time})+',')
                     }
                 }
-                catch(err) {
-                    socket.emit('internal_error', 'Error parsing validation query return. '+err);
+                catch (err) {
+                    socket.emit('internal_error', 'Error parsing validation query return. ' + err);
                     socket.disconnect();
                 }
             });
+        });
+        socket.conn.on('upgrade', function(transport) {
+            console.log('upgraded to:');
+            console.log(transport.query.transport);
         });
         // decrements the correct property of the room object on disconnection
         socket.on('disconnect', function () {
@@ -125,10 +143,16 @@ io.on('connect', function(socket) {
             else {
                 delete rooms[JSON.stringify(args)];
             }
+            socket_count--;
+            console.log('socket_count: '+socket_count);
+            fs.appendFile('performance_test.log', JSON.stringify({loadavg: os.loadavg(),
+                freemem: os.freemem(),
+                sockets: socket_count,
+                time: Math.floor(Date.now() / 1000)-start_time})+',')
         });
     }
 });
 
-server.listen(8081, function(){
+server.listen(8081, function () {
     console.log("listening for clients on port 80 ==> 8081");
 });

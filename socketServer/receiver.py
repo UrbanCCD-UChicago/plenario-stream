@@ -1,17 +1,24 @@
 import json
 from socketIO_client import SocketIO
-
-socketIO = SocketIO("streaming.plenar.io", params={
-    'sensor_network': 'ArrayOfThings',
-    'features_of_interest': 'gasConcentration',
-    'nodes': ['00A']})
+import time
+from threading import Thread
 
 def on_data(data):
     print json.dumps(data)
 
+
 def on_error(err):
     print json.dumps(err)
 
-socketIO.on('data', on_data)
-socketIO.on('internal_error', on_error)
-socketIO.wait()
+
+def open_client():
+    socketIO = SocketIO("streaming.plenar.io")
+
+    socketIO.on('data', on_data)
+    socketIO.on('internal_error', on_error)
+    socketIO.wait()
+
+for i in range(0, 5):
+    t = Thread(target=open_client)
+    t.start()
+    time.sleep(.2)

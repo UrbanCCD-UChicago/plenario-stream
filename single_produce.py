@@ -3,6 +3,9 @@
 import sys
 from os import environ
 import boto3
+from datetime import datetime
+import time
+import random
 
 def make_client():
     """
@@ -38,19 +41,14 @@ def send_data(client, data):
     }
     client.put_record(**params)
 
-# Expected format:
-#
-# {"node_id": "00A",
-#  "node_config": "011ab78",
-#  "datetime": "2016-08-05T00:00:08.246000",
-#  "sensor": "HTU21D",
-#  "data": {
-#      "temperature": 37.90,
-#      "humidity": 27.48}}
-
 if __name__ == '__main__':
     c = make_client()
-    message = sys.argv[1]
-    print "SENT: " + message
-    send_data(c, message.encode('ascii'))
-
+    count = 0
+    messages = []
+    while True:
+        message = ('{"node_id": "000","node_config": "23f","datetime": "'+datetime.utcnow().isoformat().split('+')[0]+'",' \
+                          '"sensor": "TMP112","data": {"Temperature": '+str(random.uniform(60,90))+'}}')
+        count += 1
+	print message
+        send_data(c, message.encode('ascii'))
+	# time.sleep(.1)
